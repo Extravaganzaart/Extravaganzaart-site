@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Caveat&family=Marmelad&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bradley+Hand&family=Dancing+Script&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Extravaganza Art</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="dark">
+<div class="banner">
+  <img src="images/banner.jpg" alt="Banner" />
+  <div class="inspiration-text">
+    <p>Inspiration is the echo of your inner fire </p>
+  </div>
+</div>
+
+<div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
+
+<nav class="sidebar" id="sidebar">
+  <a href="#gallery">Gallery</a>
+  <a href="#about">About Me</a>
+  <a href="#contact">Contacts</a>
+</nav>
+
+<nav class="main-nav">
+  <a href="#gallery" id="nav-gallery">Gallery</a>
+<a href="#about" id="nav-about">About Me</a>
+<a href="#contact" id="nav-contact">Contacts</a>
+</nav>
+
+<div class="header-text">
+  <h1 id="site-title">Extravaganza Art</h1>
+  <p id="tagline">Art that speaks to the soul and transforms spaces </p>
+</div>
+
+<div class="top-controls">
+  <div class="control-btn" onclick="flipCanvas()" title="Flip Theme">
+  <span>🖌️</span>
+</div>
+
+  <div class="control-btn" onclick="toggleLanguage()" title="Switch Language">
+    <span>🌐</span>
+  </div>
+</div>
+
+  <section id="gallery">
+    <h2 id="gallery-title">Gallery</h2>
+<!-- Модальное окно -->
+<div id="modal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="modal-img" />
+</div>
+  <div class="grid">
+  <div class="card" data-en="Sky Whale,July 2025. Price $1500. - An orca floats above a crimson tundra, while a lone figure watches in awe.The scene captures solitude, wonder, and the dreamlike intersection between nature and imagination." 
+                    data-ru="Небесный Кит, 07.2025. Цена $1500. - Косатка парит над багровой тундрой, а одинокая фигура с восхищением наблюдает за ней. Сцена передает одиночество, удивление и сказочное пересечение природы и воображения.">
+      <img src="images/painting1.jpg" alt="Painting 1" />
+<div class="description"></div>
+  </div>
+  <div class="card" data-en="Amber Mind, October 2025. Price $2000. - A face carved from stone gazes through time with amber eyes. Delicate fabric wraps the figure, merging the cold of stone with the warmth of breath. A beautiful transformation between human and element, between thought and nature. " 
+                    data-ru="Янтарный Разум, 10.2025. Цена $2000 - Лик, словно высеченный из камня, смотрит сквозь время янтарными глазами. Хрупкая ткань обволакивает фигуру, соединяя холод камня с теплом дыхания. Красивая трансформация между человеком и элементом, между разумом и природой.">
+    <img src="images/painting2.jpg" alt="Painting 2" />
+  <div class="description"></div>
+  </div>
+  <div class="card" data-en="Violet Spirit, August 2025. Price $2000. - A surreal fusion of stone and bloom. Glowing violet eyes pierce through silence, while soft and delicate petals frame a silhouette frozen between decay and rebirth." 
+                   data-ru="Лиловый Разум, 08.2025. Цена $2000 - Сюрреалистический союз камня и цветка. Светящиеся фиолетовые глаза пронзают тишину, а нежные и хрупкие лепестки окаймляют силуэт, застывший между увяданием и возрождением.">
+    <img src="images/painting3.jpg" alt="Painting 3" />
+<div class="description"></div>
+  </div>
+</div>
+</section>
+
+  <section id="about">
+    <h2 id="about-title">About Me</h2>
+    <div id="about-text"></div>
+  </section>
+
+  <section id="contact">
+    <h2 id="contact-title">Contact</h2>
+    <p id="contact-text">
+      For any inquiries, please email at: <br />
+      <strong>extravaganza.art@proton.me</strong>
+    </p>
+  </section>
+
+  <footer>
+    <p id="footer-text">© Extravaganza Art. All rights reserved.</p>
+  </footer>
+
+   <script>
+  let currentLang = navigator.language.startsWith("ru") ? "ru" : "en";
+  const canvasSound = new Audio('sounds/iphone-ding-sound-fx.wav');
+  const languageSound = new Audio('sounds/water-drip-45622.mp3');
+
+  function updateDescriptions() {
+    document.querySelectorAll('.card').forEach(card => {
+      const description = currentLang === 'en'
+        ? card.getAttribute('data-en')
+        : card.getAttribute('data-ru');
+      card.setAttribute('data-description', description);
+    });
+  }
+
+  function flipCanvas() {
+    canvasSound.currentTime = 0;
+    canvasSound.play();
+
+    document.body.classList.add('flip');
+
+    setTimeout(() => {
+      document.body.classList.remove('flip');
+
+      if (document.body.classList.contains('dark')) {
+        document.body.classList.remove('dark');
+        document.body.classList.add('light');
+      } else {
+        document.body.classList.remove('light');
+        document.body.classList.add('dark');
+      }
+    }, 800);
+  }
+
+  function toggleLanguage() {
+    currentLang = currentLang === "en" ? "ru" : "en";
+    document.documentElement.lang = currentLang;
+    document.body.classList.toggle('ru', currentLang === 'ru');
+
+    languageSound.currentTime = 0;
+    languageSound.play();
+
+    const isEnglish = currentLang === "en";
+    const langFile = isEnglish ? "about-en.html" : "about-ru.html";
+
+    document.getElementById("site-title").textContent = isEnglish ? "Extravaganza Art" : "Экстраваганза Арт";
+    document.getElementById("gallery-title").textContent = isEnglish ? "Gallery" : "Галерея";
+    document.getElementById("nav-gallery").textContent = isEnglish ? "Gallery" : "Галерея";
+    document.getElementById("nav-about").textContent = isEnglish ? "About Me" : "Обо мне";
+    document.getElementById("nav-contact").textContent = isEnglish ? "Contacts" : "Контакты";
+// Переводим боковое меню
+const sidebarLinks = document.querySelectorAll("#sidebar a");
+if (sidebarLinks.length === 3) {
+  sidebarLinks[0].textContent = isEnglish ? "Gallery" : "Галерея";
+  sidebarLinks[1].textContent = isEnglish ? "About Me" : "Обо мне";
+  sidebarLinks[2].textContent = isEnglish ? "Contacts" : "Контакты";
+}
+    document.getElementById("tagline").textContent = isEnglish
+      ? "Art that speaks to the soul and transforms spaces"
+      : "Искусство, говорящее с душой и преображающее пространство";
+    document.getElementById("about-title").textContent = isEnglish ? "About Me" : "Обо мне";
+    document.getElementById("contact-title").textContent = isEnglish ? "Contact" : "Контакты";
+    document.getElementById("contact-text").innerHTML = isEnglish
+      ? 'For inquiries & orders, please email at: <br /><strong>extravaganza.art@proton.me</strong>'
+      : 'Для запросов и заказов: <br /><strong>extravaganza.art@proton.me</strong>';
+    document.getElementById("footer-text").textContent = isEnglish
+      ? "© Extravaganza Art. All rights reserved."
+      : "© Экстраваганза Арт. Все права защищены.";
+
+    updateDescriptions();
+
+    fetch(langFile)
+      .then(response => response.text())
+      .then(data => {
+        const container = document.getElementById("about-text");
+        container.innerHTML = data;
+
+       if (isEnglish) {
+  const container = document.getElementById("about-text");
+  container.style.fontSize = "1.3em";
+  container.style.lineHeight = "1.8";
+
+  container.querySelectorAll("*").forEach(el => {
+    el.style.fontSize = "1.3em";
+    el.style.lineHeight = "1.8";
+  });
+}
+      })
+      .catch(error => {
+        console.error("Error loading about section:", error);
+        document.getElementById("about-text").textContent = "Failed to load content.";
+      });
+  }
+
+  document.querySelectorAll(".card img").forEach((img) => {
+    img.addEventListener("click", function () {
+      const modal = document.getElementById("modal");
+      const modalImg = document.getElementById("modal-img");
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    });
+  });
+
+  function closeModal() {
+    document.getElementById("modal").style.display = "none";
+  }
+
+  toggleLanguage(); // загрузка языка при старте
+
+function toggleSidebar() {
+  const sidebar = document.getElementById("sidebar");
+  sidebar.classList.toggle("show");
+}
+
+</script>
+
+</body>
+</html>
