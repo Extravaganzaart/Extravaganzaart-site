@@ -54,7 +54,7 @@
   <img class="modal-content" id="modal-img" />
 </div>
   <div class="grid">
-  <div class="card" data-en="Sky Whale,July 2025. Price $1500. - An orca floats above a crimson tundra, while a lone figure watches in awe.The scene captures solitude, wonder, and the dreamlike intersection between nature and imagination." 
+  <div class="card" data-en="Sky Whale, July 2025. Price $1500. - An orca floats above a crimson tundra, while a lone figure watches in awe.The scene captures solitude, wonder, and the dreamlike intersection between nature and imagination." 
                     data-ru="Небесный Кит, 07.2025. Цена $1500. - Косатка парит над багровой тундрой, а одинокая фигура с восхищением наблюдает за ней. Сцена передает одиночество, удивление и сказочное пересечение природы и воображения.">
       <img src="images/painting1.jpg" alt="Painting 1" />
 <div class="description"></div>
@@ -89,119 +89,155 @@
     <p id="footer-text">© Extravaganza Art. All rights reserved.</p>
   </footer>
 
-   <script>
-  let currentLang = navigator.language.startsWith("ru") ? "ru" : "en";
-  const canvasSound = new Audio('sounds/iphone-ding-sound-fx.wav');
-  const languageSound = new Audio('sounds/water-drip-45622.mp3');
+  <script>
+let currentLang = navigator.language.startsWith("ru") ? "ru" : "en";
+const canvasSound = new Audio('sounds/iphone-ding-sound-fx.wav');
+const languageSound = new Audio('sounds/water-drip-45622.mp3');
 
-  function updateDescriptions() {
-    document.querySelectorAll('.card').forEach(card => {
+function flipCanvas() {
+  canvasSound.currentTime = 0;
+  canvasSound.play();
+
+  document.body.classList.add('flip');
+
+  setTimeout(() => {
+    document.body.classList.remove('flip');
+
+    if (document.body.classList.contains('dark')) {
+      document.body.classList.remove('dark');
+      document.body.classList.add('light');
+    } else {
+      document.body.classList.remove('light');
+      document.body.classList.add('dark');
+    }
+  }, 800);
+}
+
+function toggleLanguage() {
+  currentLang = currentLang === "en" ? "ru" : "en";
+  document.documentElement.lang = currentLang;
+  document.body.classList.toggle('ru', currentLang === 'ru');
+
+  languageSound.currentTime = 0;
+  languageSound.play();
+
+  const isEnglish = currentLang === "en";
+  const langFile = isEnglish ? "about-en.html" : "about-ru.html";
+
+  document.getElementById("site-title").textContent = isEnglish ? "Extravaganza Art" : "Экстраваганза Арт";
+  document.getElementById("gallery-title").textContent = isEnglish ? "Gallery" : "Галерея";
+  document.getElementById("nav-gallery").textContent = isEnglish ? "Gallery" : "Галерея";
+  document.getElementById("nav-about").textContent = isEnglish ? "About Me" : "Обо мне";
+  document.getElementById("nav-contact").textContent = isEnglish ? "Contacts" : "Контакты";
+
+  const sidebarLinks = document.querySelectorAll("#sidebar a");
+  if (sidebarLinks.length === 3) {
+    sidebarLinks[0].textContent = isEnglish ? "Gallery" : "Галерея";
+    sidebarLinks[1].textContent = isEnglish ? "About Me" : "Обо мне";
+    sidebarLinks[2].textContent = isEnglish ? "Contacts" : "Контакты";
+  }
+
+  document.getElementById("tagline").textContent = isEnglish
+    ? "Art that speaks to the soul and transforms spaces"
+    : "Искусство, говорящее с душой и преображающее пространство";
+
+  document.getElementById("about-title").textContent = isEnglish ? "About Me" : "Обо мне";
+  document.getElementById("contact-title").textContent = isEnglish ? "Contact" : "Контакты";
+  document.getElementById("contact-text").innerHTML = isEnglish
+    ? 'For inquiries & orders, please email at: <br /><strong>extravaganza.art@proton.me</strong>'
+    : 'Для запросов и заказов: <br /><strong>extravaganza.art@proton.me</strong>';
+
+  document.getElementById("footer-text").textContent = isEnglish
+    ? "© Extravaganza Art. All rights reserved."
+    : "© Экстраваганза Арт. Все права защищены.";
+
+  fetch(langFile)
+    .then(response => response.text())
+    .then(data => {
+      const container = document.getElementById("about-text");
+      container.innerHTML = data;
+
+      if (isEnglish) {
+        container.style.fontSize = "1.3em";
+        container.style.lineHeight = "1.8";
+        container.querySelectorAll("*").forEach(el => {
+          el.style.fontSize = "1.3em";
+          el.style.lineHeight = "1.8";
+        });
+      }
+    })
+    .catch(error => {
+      console.error("Error loading about section:", error);
+      document.getElementById("about-text").textContent = "Failed to load content.";
+    });
+
+  // Сброс описаний и флагов
+  document.querySelectorAll('.card').forEach(card => {
+    const descBox = card.querySelector('.description');
+    descBox.textContent = '';
+    descBox.style.display = 'none';
+    card.dataset.clickedOnce = 'false';
+  });
+}
+
+document.querySelectorAll(".card img").forEach((img) => {
+  const card = img.closest(".card");
+  const descBox = card.querySelector(".description");
+
+  img.addEventListener("click", function () {
+    const clickedOnce = card.dataset.clickedOnce === 'true';
+
+    if (!clickedOnce) {
       const description = currentLang === 'en'
         ? card.getAttribute('data-en')
         : card.getAttribute('data-ru');
-      card.setAttribute('data-description', description);
-    });
-  }
 
-  function flipCanvas() {
-    canvasSound.currentTime = 0;
-    canvasSound.play();
+      descBox.textContent = description;
+      descBox.style.display = "block";
+      setTimeout(() => {
+        descBox.style.opacity = "1";
+      }, 10);
 
-    document.body.classList.add('flip');
+      card.dataset.clickedOnce = 'true';
 
-    setTimeout(() => {
-      document.body.classList.remove('flip');
-
-      if (document.body.classList.contains('dark')) {
-        document.body.classList.remove('dark');
-        document.body.classList.add('light');
-      } else {
-        document.body.classList.remove('light');
-        document.body.classList.add('dark');
-      }
-    }, 800);
-  }
-
-  function toggleLanguage() {
-    currentLang = currentLang === "en" ? "ru" : "en";
-    document.documentElement.lang = currentLang;
-    document.body.classList.toggle('ru', currentLang === 'ru');
-
-    languageSound.currentTime = 0;
-    languageSound.play();
-
-    const isEnglish = currentLang === "en";
-    const langFile = isEnglish ? "about-en.html" : "about-ru.html";
-
-    document.getElementById("site-title").textContent = isEnglish ? "Extravaganza Art" : "Экстраваганза Арт";
-    document.getElementById("gallery-title").textContent = isEnglish ? "Gallery" : "Галерея";
-    document.getElementById("nav-gallery").textContent = isEnglish ? "Gallery" : "Галерея";
-    document.getElementById("nav-about").textContent = isEnglish ? "About Me" : "Обо мне";
-    document.getElementById("nav-contact").textContent = isEnglish ? "Contacts" : "Контакты";
-// Переводим боковое меню
-const sidebarLinks = document.querySelectorAll("#sidebar a");
-if (sidebarLinks.length === 3) {
-  sidebarLinks[0].textContent = isEnglish ? "Gallery" : "Галерея";
-  sidebarLinks[1].textContent = isEnglish ? "About Me" : "Обо мне";
-  sidebarLinks[2].textContent = isEnglish ? "Contacts" : "Контакты";
-}
-    document.getElementById("tagline").textContent = isEnglish
-      ? "Art that speaks to the soul and transforms spaces"
-      : "Искусство, говорящее с душой и преображающее пространство";
-    document.getElementById("about-title").textContent = isEnglish ? "About Me" : "Обо мне";
-    document.getElementById("contact-title").textContent = isEnglish ? "Contact" : "Контакты";
-    document.getElementById("contact-text").innerHTML = isEnglish
-      ? 'For inquiries & orders, please email at: <br /><strong>extravaganza.art@proton.me</strong>'
-      : 'Для запросов и заказов: <br /><strong>extravaganza.art@proton.me</strong>';
-    document.getElementById("footer-text").textContent = isEnglish
-      ? "© Extravaganza Art. All rights reserved."
-      : "© Экстраваганза Арт. Все права защищены.";
-
-    updateDescriptions();
-
-    fetch(langFile)
-      .then(response => response.text())
-      .then(data => {
-        const container = document.getElementById("about-text");
-        container.innerHTML = data;
-
-       if (isEnglish) {
-  const container = document.getElementById("about-text");
-  container.style.fontSize = "1.3em";
-  container.style.lineHeight = "1.8";
-
-  container.querySelectorAll("*").forEach(el => {
-    el.style.fontSize = "1.3em";
-    el.style.lineHeight = "1.8";
-  });
-}
-      })
-      .catch(error => {
-        console.error("Error loading about section:", error);
-        document.getElementById("about-text").textContent = "Failed to load content.";
-      });
-  }
-
-  document.querySelectorAll(".card img").forEach((img) => {
-    img.addEventListener("click", function () {
+      // ⏳ Автоматическое скрытие через 7 секунд
+      setTimeout(() => {
+        descBox.style.opacity = "0";
+        setTimeout(() => {
+          descBox.style.display = "none";
+          card.dataset.clickedOnce = 'false';
+        }, 500);
+      }, 7000);
+    } else {
       const modal = document.getElementById("modal");
       const modalImg = document.getElementById("modal-img");
       modal.style.display = "block";
-      modalImg.src = this.src;
-    });
+      modalImg.src = img.src;
+      card.dataset.clickedOnce = 'false';
+    }
   });
+});
 
-  function closeModal() {
-    document.getElementById("modal").style.display = "none";
-  }
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
 
-  toggleLanguage(); // загрузка языка при старте
+  document.querySelectorAll('.card').forEach(card => {
+    const descBox = card.querySelector('.description');
+    descBox.style.opacity = '0';
+    setTimeout(() => {
+      descBox.style.display = 'none';
+      card.dataset.clickedOnce = 'false';
+    }, 500);
+  });
+}
 
 function toggleSidebar() {
   const sidebar = document.getElementById("sidebar");
   sidebar.classList.toggle("show");
 }
 
+// Запускаем язык при загрузке
+toggleLanguage();
 </script>
 
 </body>

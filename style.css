@@ -1,8 +1,25 @@
-body { margin: 0; padding: 0; font-family: "Bradley Hand ITC", "Marmelad", "Caveat", cursive; text-align: center; transition: background-color 0.3s ease, color 0.3s ease; }
-body.light { background-color: #f5f0e6; color: #000; font-family: 'Bradley Hand ITC', cursive; }
+body 
+{ margin: 0; padding: 0; 
+text-align: center; transition: background-color 0.3s ease, color 0.3s ease; }
+/* Базовый шрифт для английской версии */
+body {
+  font-family: 'Bradley Hand ITC', cursive;
+}
+
+/* Русский шрифт */
 body.ru {
   font-family: 'Marmelad', sans-serif;
 }
+
+/* Гарантированное применение Marmelad при любой теме */
+body.light {
+  background-color: #f5f0e6;
+  color: #000;
+}
+body.ru.dark {
+  font-family: 'Marmelad', sans-serif;
+}
+
 body.ru #tagline {
   font-size: 1.2em;
 }
@@ -91,7 +108,19 @@ body.light .main-nav a:hover { background-color: #ddd; }
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
   transform: scale(0.9);
-  animation: zoomIn 0.6s ease-out forwards;
+  opacity: 0;
+  animation: zoomInFade 0.6s ease-out forwards;
+}
+
+@keyframes zoomInFade {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @keyframes zoomIn { to { transform: scale(1); } }
@@ -253,7 +282,7 @@ body.light .inspiration-text p {
   text-shadow: none;
 }
 body.ru #site-title {
-  font-size: 3.5em;
+  font-size: 2.6em;
 }
 body.ru #about-text,
 body.ru #contact-text {
@@ -272,45 +301,12 @@ body.ru h2 {
 .card {
   position: relative;
 }
-.card::after {
-  content: attr(data-description);
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 0.9em;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  white-space: normal;           /* ✅ разрешает перенос строк */
-  word-break: break-word;        /* ✅ переносит длинные слова */
-  overflow-wrap: break-word;     /* ✅ дополнительная защита */
-  max-width: 90%;                /* ✅ ограничивает ширину */
-}
 
-.card:hover::after {
-  opacity: 1;
-}
 #about-text p {
   font-size: 0.85em !important;
   line-height: 1.4;
   margin: 0 auto 0.8em;
   max-width: 600px;
-}
-.card .description {
-  display: block;
-  max-width: 90%;
-  margin: 0.5em auto 0 auto;
-  font-style: italic;
-  font-size: 1em;
-  text-align: center;
-  color: #ccc;
-  word-break: break-word;
-  white-space: normal;
-  overflow-wrap: break-word;
 }
 body.ru .main-nav {
   font-size: 1.1em; /* или 1em, если нужно ещё меньше */
@@ -400,5 +396,75 @@ img {
   .main-nav {
     display: none;
   }
+}
+
+@media (max-width: 768px) {
+  html[lang="en"] #tagline {
+    font-size: 1.5em;
+    line-height: 1.7;
+  }
+
+  html[lang="en"] .main-nav {
+    font-size: 1.2em;
+  }
+
+  html[lang="en"] .main-nav a,
+  html[lang="en"] .sidebar a {
+    font-size: 1.2em;
+    padding: 12px 20px;
+  }
+
+  html[lang="en"] #about-text,
+  html[lang="en"] #about-text p {
+    font-size: 1.2em !important;
+    line-height: 1.8;
+  }
+
+  html[lang="en"] #contact-text {
+    font-size: 1.2em;
+    line-height: 1.6;
+  }
+
+  html[lang="en"] .card .description {
+    font-size: 1.2em;
+    line-height: 1.6;
+  }
+}
+.modal .close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 2em;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1000;
+  display: inline-block;
+  background: none;
+  padding: 0;
+}
+body.light .card .description {
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+#site-title {
+  font-size: 3em;
+}
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card .description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 10px;
+  font-size: 0.9em;
+  display: none;
+  transition: opacity 0.5s ease;
+  opacity: 0;
 }
 
