@@ -188,6 +188,7 @@ document.querySelectorAll(".card img").forEach((img) => {
     const clickedOnce = card.dataset.clickedOnce === 'true';
 
     if (!clickedOnce) {
+      // Показать описание
       const description = currentLang === 'en'
         ? card.getAttribute('data-en')
         : card.getAttribute('data-ru');
@@ -200,7 +201,7 @@ document.querySelectorAll(".card img").forEach((img) => {
 
       card.dataset.clickedOnce = 'true';
 
-      // ⏳ Автоматическое скрытие через 7 секунд
+      // Автоматическое скрытие
       setTimeout(() => {
         descBox.style.opacity = "0";
         setTimeout(() => {
@@ -209,10 +210,12 @@ document.querySelectorAll(".card img").forEach((img) => {
         }, 500);
       }, 7000);
     } else {
+      // Открыть модальное окно
       const modal = document.getElementById("modal");
       const modalImg = document.getElementById("modal-img");
       modal.style.display = "block";
       modalImg.src = img.src;
+
       card.dataset.clickedOnce = 'false';
     }
   });
