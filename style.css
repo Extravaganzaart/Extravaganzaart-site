@@ -445,7 +445,7 @@ body.light .card .description {
   .close {
     position: absolute;
     top: -20px;
-    right: -20px;
+    right: -30px;
     font-size: 2em;
     color: #fff;
     cursor: pointer;
