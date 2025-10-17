@@ -299,7 +299,7 @@ body.ru .main-nav {
     text-align: center;
     font-size: 0.9em;
   }
-
+}
 img {
   max-width: 100%;
   height: auto;
@@ -411,38 +411,27 @@ body.light .card .description {
   opacity: 0;
 }
 @media (min-width: 769px) {
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
-    overflow: auto;
-    text-align: center;
-    padding-top: 60px;
+  .modal-wrapper {
+    position: relative;
+    display: inline-block;
   }
 
   .modal-content,
   #modal-img {
     max-width: 90%;
     max-height: 90vh;
-    margin: auto;
     object-fit: contain;
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
     cursor: zoom-out;
     transition: transform 0.3s ease;
-    z-index: 1;
   }
 
   .close {
-    position: fixed;
-    top: 30px;
-    right: 40px;
-    font-size: 2.5em;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 2em;
     color: #fff;
     cursor: pointer;
     z-index: 10000;
@@ -450,3 +439,5 @@ body.light .card .description {
     padding: 0;
   }
 }
+
+
