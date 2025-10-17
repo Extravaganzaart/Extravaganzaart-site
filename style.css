@@ -89,25 +89,6 @@ body.dark .main-nav a:hover { background-color: #222; }
 body.light .main-nav a:hover { background-color: #ddd; }
 
 /* Модальное окно */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.9);
-  overflow: hidden;
-}
-.modal-content {
-  display: block;
-  margin: 0 auto;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  animation: zoomInFull 0.6s ease-out forwards;
-}
 
 @keyframes zoomInFade {
   from {
@@ -119,7 +100,6 @@ body.light .main-nav a:hover { background-color: #ddd; }
     opacity: 1;
   }
 }
-
 @keyframes zoomIn { to { transform: scale(1); } }
 
 .close {
@@ -130,25 +110,6 @@ body.light .main-nav a:hover { background-color: #ddd; }
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
-}
-
-/* Баннер */
-.banner {
-  position: relative;
-  height: 400px;
-  overflow: hidden;
-  animation: fadeOut 1s ease-in forwards;
-  animation-delay: 4s;
-}
-
-.banner img {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  animation: slideInLeft 1.5s ease-out forwards;
 }
 
 @keyframes slideInLeft { to { left: 0; } }
@@ -168,7 +129,7 @@ body.light .main-nav a:hover { background-color: #ddd; }
   height: 400px;
   overflow: hidden;
   animation: shrinkBanner 2s ease-in forwards;
-  animation-delay: 3s;
+  animation-delay: 3s, 4s;
 }
 
 .banner img {
@@ -295,9 +256,6 @@ body.ru #footer-text {
 body.ru h2 {
   font-size: 1.6em;
 }
-.card {
-  position: relative;
-}
 
 #about-text p {
   font-size: 0.85em !important;
@@ -341,7 +299,7 @@ body.ru .main-nav {
     text-align: center;
     font-size: 0.9em;
   }
-}
+
 img {
   max-width: 100%;
   height: auto;
@@ -427,18 +385,6 @@ img {
     line-height: 1.6;
   }
 }
-.modal .close {
-  position: absolute;
-  top: 30px;
-  right: 40px;
-  font-size: 2em;
-  color: #fff;
-  cursor: pointer;
-  z-index: 1000;
-  display: inline-block;
-  background: none;
-  padding: 0;
-}
 body.light .card .description {
   color: #fff;
   text-shadow: 0 1px 3px rgba(0,0,0,0.4);
@@ -464,21 +410,19 @@ body.light .card .description {
   transition: opacity 0.5s ease;
   opacity: 0;
 }
-.modal-content img,
-#modal-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 @media (min-width: 769px) {
   .modal {
-    overflow: auto;
-    padding: 60px 20px;
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.85);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+    overflow: auto;
+    text-align: center;
+    padding-top: 60px;
   }
 
   .modal-content,
@@ -495,16 +439,14 @@ body.light .card .description {
   }
 
   .close {
-    position: absolute;
+    position: fixed;
     top: 30px;
     right: 40px;
     font-size: 2.5em;
     color: #fff;
     cursor: pointer;
-    z-index: 2;
+    z-index: 10000;
     background: none;
     padding: 0;
   }
 }
-
-
