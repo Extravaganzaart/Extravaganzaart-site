@@ -470,5 +470,24 @@ body.light .card .description {
   height: 100%;
   object-fit: cover;
 }
+@media (min-width: 769px) {
+  .modal {
+    overflow: auto;
+    padding: 60px 20px;
+    background-color: rgba(0, 0, 0, 0.85);
+  }
+
+  .modal-content,
+  #modal-img {
+    max-width: 80%;
+    max-height: 80vh;
+    margin: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    cursor: zoom-out;
+    transition: transform 0.3s ease;
+  }
+}
 
 
