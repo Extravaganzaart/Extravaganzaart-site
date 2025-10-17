@@ -216,6 +216,8 @@ document.querySelectorAll(".card img").forEach((img) => {
       const modal = document.getElementById("modal");
       const modalImg = document.getElementById("modal-img");
       modal.style.display = "block";
+      modal.querySelector(".modal-wrapper").classList.add("animate");
+
       modalImg.src = img.src;
 
       card.dataset.clickedOnce = 'false';
@@ -225,6 +227,7 @@ document.querySelectorAll(".card img").forEach((img) => {
 
 function closeModal() {
   document.getElementById("modal").style.display = "none";
+  document.querySelector(".modal-wrapper").classList.remove("animate");
 
   document.querySelectorAll('.card').forEach(card => {
     const descBox = card.querySelector('.description');
