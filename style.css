@@ -431,18 +431,17 @@ body.light .card .description {
     position: relative;
     display: inline-block;
   }
-
-  .modal-content,
-  #modal-img {
-    max-width: 90%;
-    max-height: 90vh;
-    object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    cursor: zoom-out;
-    transition: transform 0.3s ease;
-  }
-
+.modal-content,
+#modal-img {
+  max-width: 98%;
+  max-height: 95vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+  cursor: zoom-out;
+  transform: scale(1.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
   .close {
     position: absolute;
     top: -20px;
