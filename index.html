@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GVR2JBBSKD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GVR2JBBSKD');
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Marmelad&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Bradley+Hand&family=Dancing+Script&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="Extravaganza">
+  <meta name="robots" content="index, follow">
+
   <title>Extravaganza Art</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -246,6 +261,14 @@ function toggleSidebar() {
 
 // Запускаем язык при загрузке
 toggleLanguage();
+document.querySelector('meta[name="description"]').setAttribute("content", currentLang === "en"
+  ? "Extravaganza Art — digital paintings that transform spaces and speak to the soul."
+  : "Extravaganza Art — цифровые картины, преображающие пространство и говорящие с душой.");
+
+document.querySelector('meta[name="keywords"]').setAttribute("content", currentLang === "en"
+  ? "digital art, interior paintings, exterior decoration, modern art, Extravaganza Art"
+  : "цифровое искусство, картины для интерьера, декорации для экстерьера, современная живопись, Extravaganza Art");
+
 </script>
 
 </body>
