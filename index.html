@@ -191,8 +191,8 @@ function toggleLanguage() {
   document.getElementById("about-title").textContent = isEnglish ? "About Me" : "Обо мне";
   document.getElementById("contact-title").textContent = isEnglish ? "Contact" : "Контакты";
   document.getElementById("contact-text").innerHTML = isEnglish
-  ? 'For inquiries & orders, please email at: <br /><strong><span class="contact-email">extravaganza.art@proton.me</span></strong>'
-  : 'Для запросов и заказов: <br /><strong><span class="contact-email">extravaganza.art@proton.me</span></strong>';
+  ? '<span class="contact-email">For inquiries & orders, please email at:<br /><strong>extravaganza.art@proton.me</strong></span>'
+  : '<span class="contact-email">Для запросов и заказов:<br /><strong>extravaganza.art@proton.me</strong></span>';
 
   document.getElementById("footer-text").textContent = isEnglish
     ? "© Extravaganza Art. All rights reserved."
