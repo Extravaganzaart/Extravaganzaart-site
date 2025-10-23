@@ -397,7 +397,7 @@ img {
   }
 
   html[lang="en"] .contact-email {
-    font-size: 1.3em;
+    font-size: 1.3em !important;
   }
 
   html[lang="en"] .card .description {
