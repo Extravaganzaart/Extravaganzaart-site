@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GVR2JBBSKD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GVR2JBBSKD');
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat&family=Marmelad&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bradley+Hand&family=Dancing+Script&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="">
+  <meta name="author" content="Extravaganza">
+  <meta name="robots" content="index, follow">
+
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+<title>Extravaganza Art</title>
+<meta name="description" content="Extravaganza Art — paintings that awaken emotion, elegance, and energy in every space. Not just decor — it's transformation." />
+<link rel="canonical" href="https://xtravaganzaart.com/" />
+<link rel="alternate" hreflang="en" href="https://xtravaganzaart.com/" />
+<link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="dark">
+<div class="banner">
+  <img src="images/banner.jpg" alt="Banner" />
+  <div class="inspiration-text">
+    <p>Inspiration is the echo of your inner fire </p>
+  </div>
+</div>
+
+<div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
+
+<nav class="sidebar" id="sidebar">
+  <a href="#gallery">Gallery</a>
+  <a href="#about">About Me</a>
+  <a href="#contact">Contacts</a>
+</nav>
+
+<nav class="main-nav">
+<a href="#gallery" id="nav-gallery">Gallery</a>
+<a href="#about" id="nav-about">About Me</a>
+<a href="#contact" id="nav-contact">Contacts</a>
+</nav>
+
+<div class="header-text">
+  <h1 id="site-title">Extravaganza Art</h1>
+  <p id="tagline">Art that speaks to the soul and transforms spaces </p>
+</div>
+
+<div class="top-controls">
+  <div class="control-btn" onclick="flipCanvas()" title="Flip Theme">
+  <span>🖌️</span>
+</div>
+
+  <div class="control-btn" onclick="toggleLanguage()" title="Switch Language">
+    <span>🌐</span>
+  </div>
+</div>
+
+  <section id="gallery">
+    <h2 id="gallery-title">Gallery</h2>
+<!-- Модальное окно -->
+<div id="modal" class="modal">
+  <div class="modal-wrapper">
+    <img class="modal-content" id="modal-img" />
+    <span class="close" onclick="closeModal()">&times;</span>
+  </div>
+</div>
+  <div class="grid">
+  <div class="card" data-en="Sky Whale, July 2025. Price $300" 
+                    data-ru="Небесный Кит, 07.2025. Цена $300">
+      <img src="images/painting1.jpg" alt="Painting 1" />
+<div class="description"></div>
+  </div>
+  <div class="card" data-en="Amber Mind, February 2026. Price $300" 
+                    data-ru="Янтарный Разум, 02.2026. Цена $300">
+    <img src="images/painting2.jpg" alt="Painting 2" />
+  <div class="description"></div>
+  </div>
+  <div class="card" data-en="Violet Spirit, August 2025. Price $300" 
+                   data-ru="Лиловый Разум, 08.2025. Цена $300">
+    <img src="images/painting3.jpg" alt="Painting 3" />
+<div class="description"></div>
+  </div>
+<div class="card" data-en="Leap into Light, September 2025. Price $90" 
+                   data-ru="Прыжок в Солнце, 09.2025. Цена $90">
+    <img src="images/painting4.jpg" alt="Painting 4" />
+<div class="description"></div>
+  </div>
+<div class="card" data-en="Sculpted Muse, February 2026. Price $300" 
+                   data-ru="Скульптурная Муза, 02.2026. Цена $300">
+    <img src="images/painting5.jpg" alt="Painting 5" />
+<div class="description"></div>
+  </div>
+<div class="card" data-en="Frozen Motion, August 2025. Price $90" 
+                   data-ru="Застывшее Движение, 08.2025. Цена $90>
+    <img src="images/painting6.jpg" alt="Painting 6" />
+<div class="description"></div>
+  </div>
+<div class="card" data-en="Blazing Petal, August 2025. Price $90" 
+                   data-ru="Пылающий Лепесток, 08.2025. Цена $90">
+    <img src="images/painting7.jpg" alt="Painting 7" />
+<div class="description"></div>
+ </div>
+<div class="card" data-en="Joy, October 2025. Price $90" 
+                   data-ru="Радость, 10.2025. Цена $90">
+    <img src="images/painting8.jpg" alt="Painting 8" />
+<div class="description"></div>
+ </div>
+<div class="card" data-en="Crystal Guardian, July 2025. Price $90" 
+                   data-ru="Хрустальный Страж, 07.2025. Цена $90">
+    <img src="images/painting9.jpg" alt="Painting 9" />
+<div class="description"></div>
+ </div>
+<div class="card" data-en="White Wave, February 2026. Price $90" 
+                   data-ru="Белая Волна, 02.2026. Цена $90">
+    <img src="images/painting10.jpg" alt="Painting 10" />
+<div class="description"></div>
+</div>
+<div class="card" data-en="When the World Goes Blind, February 2026. Price $90" 
+                   data-ru="Когда Мир Ослепнет, 02.2026. Цена $90 ">
+    <img src="images/painting11.jpg" alt="Painting 11" />
+<div class="description"></div>
+</div>
+<div class="card" data-en="Split, May 2025. Price $90" 
+                   data-ru="Разделенная, 05.2025. Цена $90">
+    <img src="images/painting12.jpg" alt="Painting 12" />
+<div class="description"></div>
+</div>
+<div class="card" data-en="Wolf, September 2025. Price $90" 
+                   data-ru="Волк, 09.2025. Цена $90">
+    <img src="images/painting13.jpg" alt="Painting 13" />
+<div class="description"></div>
+</div>
+<div class="card" data-en="Light Held Gently, September 2025. Price $90" 
+                   data-ru="Свет в Ладонях, 09.2025. Цена $90">
+    <img src="images/painting14.jpg" alt="Painting 14" />
+<div class="description"></div>
+</div>
+<div class="card" data-en="Red Aura, September 2025. Price $90" 
+                   data-ru="Красная Аура, 09.2025. Цена $90">
+    <img src="images/painting15.jpg" alt="Painting 15" />
+<div class="description"></div>
+</div>
+<div class="card" data-en="Chromawave, July 2025. Price $90" 
+                   data-ru="Хромоволна, 07.2025. Цена $90">
+    <img src="images/painting16.jpg" alt="Painting 16" />
+<div class="description"></div>
+</div>
+<div class="card" data-en="She Who Sees Through, February 2026. Price $90" 
+                   data-ru="Смотрящая Сквозь, 02.2026. Цена $90">
+    <img src="images/painting17.jpg" alt="Painting 17" />
+<div class="description"></div>
+</div>
+<div class="card" data-en="Woman, June 2025. Price $300" 
+                   data-ru="Женщина, 06.2025. Цена $300">
+    <img src="images/painting18.jpg" alt="Painting 18" />
+<div class="description"></div>
+</div>
+<div class="card" data-en="Man, August 2025. Price $300" 
+                   data-ru="Мужчина, 08.2025. Цена $300">
+    <img src="images/painting19.jpg" alt="Painting 19" />
+<div class="description"></div>
+</div>
+<div class="card" data-en="Blushlight Reverie, June 2025. Price $90 " 
+                   data-ru="Розовая грёза, 06.2025. Цена $90">
+    <img src="images/painting20.jpg" alt="Painting 20" />
+<div class="description"></div>
+</div>
+<div class="card" data-en="Verdelight Hymn, June 2025. Price $90" 
+                   data-ru="Зеленое Блаженство, 06.2025. Цена $90">
+    <img src="images/painting21.jpg" alt="Painting 21" />
+<div class="description"></div>
+</div>
+<div class="card" data-en="Dalmatian, May 2025. Price $90" 
+                   data-ru="Далматинка, 05.2025. Цена $250">
+    <img src="images/painting22.jpg" alt="Painting 22" />
+<div class="description"></div>
+</div>
+<div class="card" data-en="Glint Oracle, July 2025. Price $300" 
+                   data-ru="Сверкающая Сова, 07.2025. Цена $300">
+    <img src="images/painting23.jpg" alt="Painting 23" />
+<div class="description"></div>
+</div>
+<div class="card" data-en="Gloss, September 2025. Price $90" 
+                   data-ru="Глянец, 09.2025. Цена $90">
+    <img src="images/painting24.jpg" alt="Painting 24" />
+<div class="description"></div>
+</div>
+<div class="card" data-en="Gray Wave, February 2026. Price $90" 
+                   data-ru="Серая Волна, 02.2026. Цена $90">
+    <img src="images/painting25.jpg" alt="Painting 25" />
+<div class="description"></div>
+</div>
+<div class="card" data-en="Geometry of a Gaze, July 2025. Price $90" 
+                   data-ru="Геометрия Взгляда, 07.2025. Цена $90">
+    <img src="images/painting26.jpg" alt="Painting 26" />
+<div class="description"></div>
+</div>
+<div class="card" data-en="Timeless Elegance, September 2025. Price $90" 
+                   data-ru="Элегантность Вне Времени, 09.2025. Цена $90">
+    <img src="images/painting27.jpg" alt="Painting 27" />
+<div class="description"></div>
+</div>
+<div class="card" data-en="Reality Scanner, December 2025. Price $90" 
+                   data-ru="Сканер Реальности, 12.2025. Цена $90">
+    <img src="images/painting28.jpg" alt="Painting 28" />
+<div class="description"></div>
+</div>
+<div class="card" data-en="Bioluminescent Wanderer, December 2025. Price $90" 
+                   data-ru="Биолюминесцентный Странник, 12.2025. Цена $90">
+    <img src="images/painting29.jpg" alt="Painting 29" />
+<div class="description"></div>
+</div>
+<div class="card" data-en="Three Realities, August 2025. Price $300" 
+                   data-ru="Три Реальности, 08.2025. Цена $300">
+    <img src="images/painting30.jpg" alt="Painting 30" />
+<div class="description"></div>
+</div>
+<div class="card" data-en="Heart of the Waves, June 2025. Price $90" 
+                   data-ru="Сердце Волн, 06.2025. Цена $90">
+    <img src="images/painting31.jpg" alt="Painting 31" />
+<div class="description"></div>
+</div>
+<div class="card" data-en="Winter Queen, December 2025. Price $90" 
+                   data-ru="Зимняя Королева, 12.2025. Цена $90">
+    <img src="images/painting32.jpg" alt="Painting 32" />
+<div class="description"></div>
+</div>
+</div>
+</section>
+
+  <section id="about">
+    <h2 id="about-title">About Me</h2>
+    <div id="about-text"></div>
+  </section>
+
+  <section id="contact">
+    <h2 id="contact-title">Contact</h2>
+    <p id="contact-text">
+      For any inquiries, please email at: <br />
+      <strong><span class="contact-email">xtravaganzaart@gmail.com</span></strong>
+    </p>
+  </section>
+
+  <footer>
+    <p id="footer-text">© Extravaganza Art. All rights reserved.</p>
+  </footer>
+
+  <script>
+let currentLang = navigator.language.startsWith("ru") ? "ru" : "en";
+const canvasSound = new Audio('sounds/iphone-ding-sound-fx.wav');
+const languageSound = new Audio('sounds/water-drip-45622.mp3');
+
+function flipCanvas() {
+  canvasSound.currentTime = 0;
+  canvasSound.play();
+
+  document.body.classList.add('flip');
+
+  setTimeout(() => {
+    document.body.classList.remove('flip');
+
+    if (document.body.classList.contains('dark')) {
+      document.body.classList.remove('dark');
+      document.body.classList.add('light');
+    } else {
+      document.body.classList.remove('light');
+      document.body.classList.add('dark');
+    }
+  }, 800);
+}
+
+function toggleLanguage() {
+  currentLang = currentLang === "en" ? "ru" : "en";
+  document.documentElement.lang = currentLang;
+  document.body.classList.toggle('ru', currentLang === 'ru');
+
+  languageSound.currentTime = 0;
+  languageSound.play();
+
+  const isEnglish = currentLang === "en";
+  const langFile = isEnglish ? "about-en.html" : "about-ru.html";
+
+  document.getElementById("site-title").textContent = isEnglish ? "Extravaganza Art" : "Экстраваганза Арт";
+  document.getElementById("gallery-title").textContent = isEnglish ? "Gallery" : "Галерея";
+  document.getElementById("nav-gallery").textContent = isEnglish ? "Gallery" : "Галерея";
+  document.getElementById("nav-about").textContent = isEnglish ? "About Me" : "Обо мне";
+  document.getElementById("nav-contact").textContent = isEnglish ? "Contacts" : "Контакты";
+
+  const sidebarLinks = document.querySelectorAll("#sidebar a");
+  if (sidebarLinks.length === 3) {
+    sidebarLinks[0].textContent = isEnglish ? "Gallery" : "Галерея";
+    sidebarLinks[1].textContent = isEnglish ? "About Me" : "Обо мне";
+    sidebarLinks[2].textContent = isEnglish ? "Contacts" : "Контакты";
+  }
+
+  document.getElementById("tagline").textContent = isEnglish
+    ? "Art that speaks to the soul and transforms spaces"
+    : "Искусство, говорящее с душой и преображающее пространство";
+
+  document.getElementById("about-title").textContent = isEnglish ? "About Me" : "Обо мне";
+  document.getElementById("contact-title").textContent = isEnglish ? "Contact" : "Контакты";
+  document.getElementById("contact-text").innerHTML = isEnglish
+  ? '<span class="contact-email">For inquiries & orders, please email at:<br /><strong>xtravaganzaart@gmail.com</strong></span>'
+  : '<span class="contact-email">Для запросов и заказов:<br /><strong>xtravaganzaart@gmail.com</strong></span>';
+
+  document.getElementById("footer-text").textContent = isEnglish
+    ? "© Extravaganza Art. All rights reserved."
+    : "© Экстраваганза Арт. Все права защищены.";
+
+  fetch(langFile)
+    .then(response => response.text())
+    .then(data => {
+      const container = document.getElementById("about-text");
+      container.innerHTML = data;
+
+      if (isEnglish) {
+        container.style.fontSize = "1.3em";
+        container.style.lineHeight = "1.8";
+        container.querySelectorAll("*").forEach(el => {
+          el.style.fontSize = "1.3em";
+          el.style.lineHeight = "1.8";
+        });
+      }
+    })
+    .catch(error => {
+      console.error("Error loading about section:", error);
+      document.getElementById("about-text").textContent = "Failed to load content.";
+    });
+
+  // Сброс описаний и флагов
+  document.querySelectorAll('.card').forEach(card => {
+    const descBox = card.querySelector('.description');
+    descBox.textContent = '';
+    descBox.style.display = 'none';
+    card.dataset.clickedOnce = 'false';
+  });
+}
+
+document.querySelectorAll(".card img").forEach((img) => {
+  const card = img.closest(".card");
+  const descBox = card.querySelector(".description");
+
+  img.addEventListener("click", function () {
+    const clickedOnce = card.dataset.clickedOnce === 'true';
+
+    if (!clickedOnce) {
+      // Показать описание
+      const description = currentLang === 'en'
+        ? card.getAttribute('data-en')
+        : card.getAttribute('data-ru');
+
+      descBox.textContent = description;
+      descBox.style.display = "block";
+      setTimeout(() => {
+        descBox.style.opacity = "1";
+      }, 10);
+
+      card.dataset.clickedOnce = 'true';
+
+      // Автоматическое скрытие
+      setTimeout(() => {
+        descBox.style.opacity = "0";
+        setTimeout(() => {
+          descBox.style.display = "none";
+          card.dataset.clickedOnce = 'false';
+        }, 500);
+      }, 7000);
+    } else {
+      // Открыть модальное окно
+      const modal = document.getElementById("modal");
+      const modalImg = document.getElementById("modal-img");
+      modal.style.display = "block";
+      modal.querySelector(".modal-wrapper").classList.add("animate");
+
+      modalImg.src = img.src;
+
+      card.dataset.clickedOnce = 'false';
+    }
+  });
+});
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+  document.querySelector(".modal-wrapper").classList.remove("animate");
+
+  document.querySelectorAll('.card').forEach(card => {
+    const descBox = card.querySelector('.description');
+    descBox.style.opacity = '0';
+    setTimeout(() => {
+      descBox.style.display = 'none';
+      card.dataset.clickedOnce = 'false';
+    }, 500);
+  });
+}
+
+function toggleSidebar() {
+  const sidebar = document.getElementById("sidebar");
+  sidebar.classList.toggle("show");
+}
+
+// Запускаем язык при загрузке
+if (!navigator.userAgent.includes("Googlebot")) {
+  toggleLanguage();
+}
+
+</script>
+
+</body>
+</html>
