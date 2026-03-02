@@ -439,7 +439,7 @@ body.light .card .description {
   border-radius: 8px;
   box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
   cursor: zoom-out;
-  transform: scale(1.2);
+  transform: scale(1.5);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
   .close {
@@ -462,5 +462,6 @@ body.light .card .description {
     color: inherit;
   }
 }
+
 
 
