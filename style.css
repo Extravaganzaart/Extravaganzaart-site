@@ -462,13 +462,10 @@ body.light .card .description {
     line-height: 1.8;
     color: inherit;
 }
-  /* 👉 Добавляем увеличение подписи в модальном окне */
-    .description,
-    .modal-description,
-    .card .description {
-        font-size: 1.8em;
-        line-height: 1.6;
-    }
+   html[lang="en"] .card .description,
+  .modal-description {
+    font-size: 1.4em;
+    line-height: 1.6;
+  }
 }
-
 
