@@ -39,15 +39,17 @@
 <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
 
 <nav class="sidebar" id="sidebar">
-  <a href="#gallery">Gallery</a>
-  <a href="#about">About Me</a>
-  <a href="#contact">Contacts</a>
+  <a href="#gallery" id="nav-gallery-side">Gallery</a>
+  <a href="#about" id="nav-about-side">About Me</a>
+  <a href="#license" id="nav-license-side">Licensing</a>
+  <a href="#contact" id="nav-contact-side">Contacts</a>
 </nav>
 
 <nav class="main-nav">
-<a href="#gallery" id="nav-gallery">Gallery</a>
-<a href="#about" id="nav-about">About Me</a>
-<a href="#contact" id="nav-contact">Contacts</a>
+  <a href="#gallery" id="nav-gallery">Gallery</a>
+  <a href="#about" id="nav-about">About Me</a>
+  <a href="#license" id="nav-license">Licensing</a>
+  <a href="#contact" id="nav-contact">Contacts</a>
 </nav>
 
 <div class="header-text">
@@ -427,10 +429,12 @@ function toggleLanguage() {
   document.getElementById("nav-contact").textContent = isEnglish ? "Contacts" : "Контакты";
 
   const sidebarLinks = document.querySelectorAll("#sidebar a");
-  if (sidebarLinks.length === 3) {
-    sidebarLinks[0].textContent = isEnglish ? "Gallery" : "Галерея";
-    sidebarLinks[1].textContent = isEnglish ? "About Me" : "Обо мне";
-    sidebarLinks[2].textContent = isEnglish ? "Contacts" : "Контакты";
+
+sidebarLinks[0].textContent = isEnglish ? "Gallery" : "Галерея";
+sidebarLinks[1].textContent = isEnglish ? "About Me" : "Обо мне";
+sidebarLinks[2].textContent = isEnglish ? "Licensing" : "Лицензии";
+sidebarLinks[3].textContent = isEnglish ? "Contacts" : "Контакты";
+
   }
 
   document.getElementById("tagline").textContent = isEnglish
