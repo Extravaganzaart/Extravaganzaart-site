@@ -423,9 +423,9 @@ function toggleLanguage() {
   const langFile = isEnglish ? "about-en.html" : "about-ru.html";
 
   document.getElementById("site-title").textContent = isEnglish ? "Extravaganza Art" : "Экстраваганза Арт";
-  document.getElementById("gallery-title").textContent = isEnglish ? "Gallery" : "Галерея";
   document.getElementById("nav-gallery").textContent = isEnglish ? "Gallery" : "Галерея";
   document.getElementById("nav-about").textContent = isEnglish ? "About Me" : "Обо мне";
+  document.getElementById("nav-license").textContent = isEnglish ? "Licensing" : "Лицензии";  
   document.getElementById("nav-contact").textContent = isEnglish ? "Contacts" : "Контакты";
 
   const sidebarLinks = document.querySelectorAll("#sidebar a");
