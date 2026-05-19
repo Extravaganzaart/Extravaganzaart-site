@@ -37,8 +37,8 @@ h2 { font-size: 2.5em; margin-bottom: 20px; }
 p { font-size: 1.5em; margin: 0 auto; max-width: 600px; }
 #about-text p {
   font-size: 1.2em !important;
-  line-height: 1.6;
-  margin-bottom: 0.8em;
+  line-height: 1.4;
+  margin-bottom: 0.6em;
   max-width: 600px;
 }
 section { padding: 60px 20px; }
@@ -275,8 +275,8 @@ body.ru h2 {
 
 #about-text p {
   font-size: 1.2em !important;
-  line-height: 1.6;
-  margin: 0 auto 0.8em;
+  line-height: 1.4;
+  margin: 0 auto 0.6em;
   max-width: 600px;
 }
 body.ru .main-nav {
