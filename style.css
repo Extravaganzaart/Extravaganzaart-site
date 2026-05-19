@@ -274,8 +274,8 @@ body.ru h2 {
 }
 
 #about-text p {
-  font-size: 0.85em !important;
-  line-height: 1.4;
+  font-size: 1.2em !important;
+  line-height: 1.6;
   margin: 0 auto 0.8em;
   max-width: 600px;
 }
