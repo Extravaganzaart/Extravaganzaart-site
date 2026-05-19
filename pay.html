@@ -274,15 +274,8 @@ function submitPayment() {
     document.getElementById("f_email").value = email;
     document.getElementById("f_tx").value = tx;
 
+    // ОТПРАВКА ФОРМЫ
     document.getElementById("sendForm").submit();
-
-    const params = new URLSearchParams(location.search);
-    params.set("email", email);
-    params.set("tx", tx);
-
-    setTimeout(() => {
-        location.href = "thankyou.html?" + params.toString();
-    }, 500);
 }
 </script>
 
