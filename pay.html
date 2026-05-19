@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Payment</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+.top-controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.control-btn {
+    background: #111;
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    border: 1px solid #333;
+}
+
+.container {
+    text-align: center;
+    width: 420px;
+}
+
+.price { color: #ffcc66; margin-bottom: 20px; }
+
+/* Плавное появление */
+.hidden-block {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease, max-height 0.4s ease;
+}
+
+.hidden-block.show {
+    opacity: 1;
+    max-height: 2000px;
+}
+
+.wallet-box {
+    background: #111;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    word-break: break-all;
+    font-size: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn, .submit-btn {
+    background: #ffcc66;
+    color: #000;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-weight: 600;
+    text-decoration: none;
+    display: block;
+    margin: 10px auto;
+    width: 200px;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn.copy {
+    width: 160px;
+    font-size: 14px;
+}
+
+.qr img {
+    width: 140px;
+    margin: 15px 0;
+}
+
+.form-box {
+    background: #111;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.form-box label {
+    font-size: 14px;
+    color: #ffcc66;
+}
+
+.required-star {
+    color: red;
+    margin-left: 3px;
+}
+
+.form-box input {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0 12px;
+    border-radius: 6px;
+    border: none;
+    background: #222;
+    color: #fff;
+}
+
+.checkbox-area {
+    margin-top: 20px;
+    text-align: left;
+    background: #111;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.checkbox-area label {
+    font-size: 14px;
+    color: #ffcc66;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-controls">
+  <div class="control-btn" onclick="toggleLanguage()"><span>🌐</span></div>
+</div>
+
+<div class="container">
+
+    <h1 class="lang-ru" id="art-name-ru"></h1>
+    <h1 class="lang-en" id="art-name-en"></h1>
+
+    <div class="price">
+        <span class="lang-ru" id="price-ru"></span>
+        <span class="lang-en" id="price-en"></span>
+    </div>
+
+    <!-- ЧЕКБОКС -->
+    <div class="checkbox-area">
+        <label class="lang-ru">
+            <input type="checkbox" id="confirmUse">
+            Подтверждаю, что приобретаю арт для личного пользования<span class="required-star">*</span>
+        </label>
+
+        <label class="lang-en">
+            <input type="checkbox" id="confirmUse_en">
+            I confirm that I am purchasing the artwork for personal use<span class="required-star">*</span>
+        </label>
+    </div>
+
+    <!-- БЛОК, КОТОРЫЙ ПОЯВЛЯЕТСЯ ПОСЛЕ ЧЕКБОКСА -->
+    <div id="paymentBlock" class="hidden-block">
+
+        <div class="wallet-box" id="wallet">TY46BZNF3FxgZe13fx67zEz7DupaxdMBnC</div>
+
+        <button class="btn copy lang-ru" onclick="copyWallet()">Скопировать адрес</button>
+        <button class="btn copy lang-en" onclick="copyWallet()">Copy address</button>
+
+        <div class="qr"><img src="qr.png" alt=""></div>
+
+        <div class="form-box">
+            <label class="lang-ru">Ваш email для получения арта<span class="required-star">*</span>:</label>
+            <label class="lang-en">Your email to receive the artwork<span class="required-star">*</span>:</label>
+            <input type="email" id="email">
+
+            <label class="lang-ru">Хеш транзакции (необязательно):</label>
+            <label class="lang-en">Transaction hash (optional):</label>
+            <input type="text" id="tx">
+
+            <button class="submit-btn lang-ru" onclick="submitPayment()">Я оплатил</button>
+            <button class="submit-btn lang-en" onclick="submitPayment()">I have paid</button>
+        </div>
+
+        <a href="index.html" class="btn lang-ru">Назад в галерею</a>
+        <a href="index.html" class="btn lang-en">Back to gallery</a>
+
+    </div>
+
+</div>
+
+<!-- СКРЫТАЯ ФОРМА ДЛЯ ОТПРАВКИ НА GMAIL -->
+<form id="sendForm" action="https://formsubmit.co/xtravaganzaart@gmail.com" method="POST" style="display:none;">
+    <input type="hidden" name="Artwork" id="f_art">
+    <input type="hidden" name="Price" id="f_price">
+    <input type="hidden" name="Email" id="f_email">
+    <input type="hidden" name="Transaction Hash" id="f_tx">
+    <input type="hidden" name="_subject" value="New Art Payment">
+    <input type="hidden" name="_template" value="table">
+</form>
+
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const lang = urlParams.get("lang") || "en";
+
+document.documentElement.lang = lang;
+document.body.classList.toggle("ru", lang === "ru");
+
+document.querySelectorAll('.lang-ru').forEach(el => {
+    el.style.display = lang === 'ru' ? '' : 'none';
+});
+document.querySelectorAll('.lang-en').forEach(el => {
+    el.style.display = lang === 'en' ? '' : 'none';
+});
+
+const p = new URLSearchParams(location.search);
+document.getElementById("art-name-ru").textContent = p.get("name");
+document.getElementById("art-name-en").textContent = p.get("name");
+document.getElementById("price-ru").textContent = p.get("price") + " USDT";
+document.getElementById("price-en").textContent = p.get("price") + " USDT";
+
+/* Плавное появление блока */
+function showBlock(checked) {
+    const block = document.getElementById("paymentBlock");
+    if (checked) {
+        block.classList.add("show");
+    } else {
+        block.classList.remove("show");
+    }
+}
+
+document.getElementById("confirmUse").addEventListener("change", function() {
+    showBlock(this.checked);
+});
+
+document.getElementById("confirmUse_en").addEventListener("change", function() {
+    showBlock(this.checked);
+});
+
+function copyWallet() {
+    navigator.clipboard.writeText(document.getElementById("wallet").textContent);
+    alert(lang === "ru" ? "Адрес скопирован" : "Address copied");
+}
+
+function toggleLanguage() {
+    const next = document.documentElement.lang === "ru" ? "en" : "ru";
+    const params = new URLSearchParams(location.search);
+    params.set("lang", next);
+    location.search = params.toString();
+}
+
+function submitPayment() {
+    const email = document.getElementById("email").value.trim();
+    const tx = document.getElementById("tx").value.trim();
+
+    if (!email) {
+        alert(lang === "ru" ? "Введите email" : "Enter your email");
+        return;
+    }
+
+    document.getElementById("f_art").value = p.get("name");
+    document.getElementById("f_price").value = p.get("price") + " USDT";
+    document.getElementById("f_email").value = email;
+    document.getElementById("f_tx").value = tx;
+
+    document.getElementById("sendForm").submit();
+
+    const params = new URLSearchParams(location.search);
+    params.set("email", email);
+    params.set("tx", tx);
+
+    setTimeout(() => {
+        location.href = "thankyou.html?" + params.toString();
+    }, 500);
+}
+</script>
+
+</body>
+</html>

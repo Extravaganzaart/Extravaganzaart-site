@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Thank you</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Плавное появление контейнера */
+.container {
+    background: #0d0d0d;
+    padding: 50px 55px;
+    border-radius: 14px;
+    text-align: center;
+    width: 440px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.08);
+
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+    animation: fadeIn 0.9s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+
+p {
+    font-size: 18px;
+    margin: 10px 0 30px;
+}
+
+.btn {
+    background: #ffcc66;
+    color: #000;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-weight: 600;
+    text-decoration: none;
+    display: block;
+    margin: 20px auto 0;
+    width: 220px;
+}
+.btn:hover {
+    background: #ffe6a3;
+}
+
+.section {
+    margin-bottom: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="section">
+        <h1>Thank you for your purchase!</h1>
+        <p>Your digital art will be delivered within 24 hours.</p>
+    </div>
+
+    <div class="section">
+        <h1>Спасибо за покупку!</h1>
+        <p>Цифровой арт будет отправлен вам в течение 24 часов.</p>
+    </div>
+
+    <a href="index.html" class="btn">Back to gallery</a>
+    <a href="index.html" class="btn">Назад в галерею</a>
+
+</div>
+
+</body>
+</html>
