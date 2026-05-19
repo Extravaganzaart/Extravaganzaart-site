@@ -8,6 +8,14 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+   (function(){
+      emailjs.init("O8EaQ5AUQ0y-nsLTM");
+   })();
+</script>
+
 <style>
 body {
     margin: 0;
@@ -43,7 +51,6 @@ body {
 
 .price { color: #ffcc66; margin-bottom: 20px; }
 
-/* Плавное появление */
 .hidden-block {
     opacity: 0;
     max-height: 0;
@@ -152,7 +159,6 @@ body {
         <span class="lang-en" id="price-en"></span>
     </div>
 
-    <!-- ЧЕКБОКС -->
     <div class="checkbox-area">
         <label class="lang-ru">
             <input type="checkbox" id="confirmUse">
@@ -165,7 +171,6 @@ body {
         </label>
     </div>
 
-    <!-- БЛОК, КОТОРЫЙ ПОЯВЛЯЕТСЯ ПОСЛЕ ЧЕКБОКСА -->
     <div id="paymentBlock" class="hidden-block">
 
         <div class="wallet-box" id="wallet">TY46BZNF3FxgZe13fx67zEz7DupaxdMBnC</div>
@@ -195,21 +200,6 @@ body {
 
 </div>
 
-<!-- СКРЫТАЯ ФОРМА ДЛЯ ОТПРАВКИ НА GMAIL -->
-<form id="sendForm" action="https://formsubmit.co/xtravaganzaart@gmail.com" method="POST" style="opacity:0; height:0; overflow:hidden; position:absolute;">
-    <input type="hidden" name="Artwork" id="f_art">
-    <input type="hidden" name="Price" id="f_price">
-    <input type="hidden" name="Email" id="f_email">
-    <input type="hidden" name="Transaction Hash" id="f_tx">
-
-    <input type="hidden" name="_subject" value="New Art Payment">
-    <input type="hidden" name="_template" value="table">
-
-    <!-- ВАЖНО -->
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://xtravaganzaart.com/thankyou.html">
-</form>
-
 <script>
 const urlParams = new URLSearchParams(window.location.search);
 const lang = urlParams.get("lang") || "en";
@@ -230,7 +220,6 @@ document.getElementById("art-name-en").textContent = p.get("name");
 document.getElementById("price-ru").textContent = p.get("price") + " USDT";
 document.getElementById("price-en").textContent = p.get("price") + " USDT";
 
-/* Плавное появление блока */
 function showBlock(checked) {
     const block = document.getElementById("paymentBlock");
     if (checked) {
@@ -269,13 +258,16 @@ function submitPayment() {
         return;
     }
 
-    document.getElementById("f_art").value = p.get("name");
-    document.getElementById("f_price").value = p.get("price") + " USDT";
-    document.getElementById("f_email").value = email;
-    document.getElementById("f_tx").value = tx;
-
-    // ОТПРАВКА ФОРМЫ
-    document.getElementById("sendForm").submit();
+    emailjs.send("service_27ysf4b", "template_98vtk46", {
+        name: email,
+        email: email,
+        message: 
+            "Artwork: " + p.get("name") +
+            "\nPrice: " + p.get("price") + " USDT" +
+            "\nTransaction: " + tx
+    }).then(() => {
+        location.href = "thankyou.html";
+    });
 }
 </script>
 
