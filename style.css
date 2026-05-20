@@ -36,10 +36,10 @@ h1 { font-size: 4em; margin-bottom: 10px; }
 h2 { font-size: 2.5em; margin-bottom: 20px; }
 p { font-size: 1.5em; margin: 0 auto; max-width: 600px; }
 #about-text p {
-  font-size: 1.2em !important;
+  font-size: 0.9em !important;
   line-height: 1.4;
-  margin-bottom: 0.6em;
-  max-width: 600px;
+  margin-bottom: 0.8em;
+  max-width: none;
 }
 section { padding: 60px 20px; }
 #gallery { padding-top: 40px; }
@@ -486,7 +486,7 @@ body.light .card .description {
   padding: 10px 14px;
   text-align: center;
 
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-weight: 500;
 
   opacity: 0;
@@ -494,6 +494,13 @@ body.light .card .description {
 
   transition: opacity 0.4s ease;
   z-index: 10;
+}
+
+/* Увеличиваем текст ТОЛЬКО на мобильных */
+@media (max-width: 600px) {
+  .overlay {
+    font-size: 1.45em;
+  }
 }
 
 /* --- КНОПКИ ПОД КАРТИНКОЙ --- */
