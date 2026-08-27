@@ -68,10 +68,13 @@ body {
     padding: 12px;
     border-radius: 8px;
     margin-bottom: 10px;
-    word-break: break-all;
-    font-size: 15px;
     width: 100%;
     box-sizing: border-box;
+}
+
+.wallet-box img {
+    width: 100%;
+    border-radius: 8px;
 }
 
 .btn, .submit-btn {
@@ -173,7 +176,13 @@ body {
 
     <div id="paymentBlock" class="hidden-block">
 
-        <div class="wallet-box" id="wallet">TY46BZNF3FxgZe13fx67zEz7DupaxdMBnC</div>
+        <!-- Картинка с адресом кошелька -->
+        <div class="wallet-box">
+            <img src="wallet.png" alt="Wallet address">
+        </div>
+
+        <!-- Скрытый текстовый адрес для копирования -->
+        <div id="wallet" style="display:none;">TY46BZNF3FxgZe13fx67zEz7DupaxdMBnC</div>
 
         <button class="btn copy lang-ru" onclick="copyWallet()">Скопировать адрес</button>
         <button class="btn copy lang-en" onclick="copyWallet()">Copy address</button>
