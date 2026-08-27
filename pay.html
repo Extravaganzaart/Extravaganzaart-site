@@ -182,7 +182,9 @@ body {
         </div>
 
         <!-- Скрытый текстовый адрес для копирования -->
-        <div id="wallet" style="display:none;">TY46BZNF3FxgZe13fx67zEz7DupaxdMBnC</div>
+        <div id="wallet" style="opacity:0; height:0; overflow:hidden;">
+            TY46BZNF3FxgZe13fx67zEz7DupaxdMBnC
+        </div>
 
         <button class="btn copy lang-ru" onclick="copyWallet()">Скопировать адрес</button>
         <button class="btn copy lang-en" onclick="copyWallet()">Copy address</button>
@@ -247,8 +249,17 @@ document.getElementById("confirmUse_en").addEventListener("change", function() {
 });
 
 function copyWallet() {
-    navigator.clipboard.writeText(document.getElementById("wallet").textContent);
-    alert(lang === "ru" ? "Адрес скопирован" : "Address copied");
+    const walletEl = document.getElementById("wallet");
+    const address = walletEl.innerText.trim() || walletEl.textContent.trim();
+
+    if (!address) {
+        alert(lang === "ru" ? "Ошибка: адрес не найден" : "Error: wallet address not found");
+        return;
+    }
+
+    navigator.clipboard.writeText(address).then(() => {
+        alert(lang === "ru" ? "Адрес скопирован" : "Address copied");
+    });
 }
 
 function toggleLanguage() {
