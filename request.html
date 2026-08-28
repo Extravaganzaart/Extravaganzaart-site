@@ -22,6 +22,7 @@ body {
     color: #fff;
     font-family: 'Montserrat', sans-serif;
     padding: 30px;
+    transition: opacity 0.6s ease;
 }
 
 /* Анимация плавного появления */
@@ -95,16 +96,6 @@ button {
     cursor: pointer;
     margin: 0 5px;
 }
-
-#successMessage {
-    display: none;
-    background: #0a0;
-    padding: 12px;
-    border-radius: 8px;
-    margin-top: 20px;
-    text-align: center;
-    font-weight: 600;
-}
 </style>
 </head>
 
@@ -165,8 +156,6 @@ button {
         <button onclick="sendForm('ru')">Отправить запрос</button>
     </div>
 
-    <div id="successMessage"></div>
-
 </div>
 
 <script>
@@ -201,17 +190,19 @@ function sendForm(lang) {
 
     emailjs.send("service_27ysf4b", "template_98vtk46", {
         name: artName,
-        email: email,
+        client_email: email,
         message:
             "Artwork: " + artName +
             "\nFormat: " + format +
             "\nMessage: " + message
     }).then(() => {
-        const box = document.getElementById("successMessage");
-        box.style.display = "block";
-        box.textContent = lang === 'ru'
-            ? "Ваш запрос отправлен. Я свяжусь с вами в ближайшее время."
-            : "Your request has been sent. I will contact you shortly.";
+
+        // Плавный переход на thankyou.html
+        document.body.style.opacity = "0";
+
+        setTimeout(() => {
+            location.href = "thankyou.html";
+        }, 600);
     });
 }
 </script>
