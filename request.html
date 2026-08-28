@@ -189,21 +189,21 @@ function sendForm(lang) {
     }
 
     emailjs.send("service_27ysf4b", "template_98vtk46", {
-        name: artName,
-        client_email: email,
-        message:
-            "Artwork: " + artName +
-            "\nFormat: " + format +
-            "\nMessage: " + message
-    }).then(() => {
+    name: email,              
+    client_email: email,      
+    message:
+        "Artwork: " + artName +
+        "\nFormat: " + format +
+        "\nMessage: " + message
+}).then(() => {
 
-        // Плавный переход на thankyou.html
-        document.body.style.opacity = "0";
+    document.body.style.opacity = "0";
 
-        setTimeout(() => {
-            location.href = "thankyou.html";
-        }, 600);
-    });
+    setTimeout(() => {
+        location.href = "thankyou.html";
+    }, 300);
+});
+
 }
 </script>
 
