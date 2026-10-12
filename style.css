@@ -496,10 +496,15 @@ body.light .card .description {
   z-index: 10;
 }
 
-/* Увеличиваем текст ТОЛЬКО на мобильных */
+/* Увеличиваем текст ТОЛЬКО на мобильных отдельно для каждого языка */
 @media (max-width: 600px) {
-  .overlay {
+
+  html[lang="en"] .overlay {
     font-size: 1.8em;
+  }
+
+  body.ru .overlay {
+    font-size: 1.4em;
   }
 }
 
