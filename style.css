@@ -499,7 +499,7 @@ body.light .card .description {
 /* Увеличиваем текст ТОЛЬКО на мобильных */
 @media (max-width: 600px) {
   .overlay {
-    font-size: 1.45em;
+    font-size: 1.8em;
   }
 }
 
@@ -529,7 +529,7 @@ body.ru .buy-btn.en { display: none; }
 /* --- МОБИЛЬНАЯ ВЕРСИЯ --- */
 @media (max-width: 768px) {
   .card .description {
-    font-size: 1.8em;
+    font-size: 1.4em;
     padding: 14px;
   }
 
