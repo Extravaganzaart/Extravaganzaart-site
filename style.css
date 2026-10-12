@@ -534,8 +534,8 @@ body.ru .buy-btn.en { display: none; }
   }
 
   .buy-btn {
-    font-size: 1.25em;
-    padding: 14px 26px;
+    font-size: 0.8em;
+    padding: 12px 22px;
     margin: 10px auto;
   }
 }
