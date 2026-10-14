@@ -622,3 +622,13 @@ body.ru .buy-btn.en { display: none; }
   position: relative;
   z-index: 1;
 }
+
+/* --- ДЕСКТОПНАЯ ВЕРСИЯ КНОПОК (экраны шире 768px) --- */
+@media (min-width: 769px) {
+  .buy-btn {
+    font-size: 1em !important;       /* Уменьшаем размер шрифта */
+    padding: 10px 24px !important;   /* Делаем кнопку менее "пухлой" */
+    width: auto !important;          /* Сбрасываем фиксированную ширину с мобилки */
+    min-width: auto !important;
+  }
+}
