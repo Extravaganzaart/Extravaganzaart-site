@@ -595,8 +595,8 @@ body.ru .buy-btn.en { display: none; }
     font-size: 0.9em;
     padding: 7px 14px;
     margin: 8px auto;
-    min-width: 180px; /* Задаем единую ширину */
-    box-sizing: border-box; /* Чтобы padding не увеличивал ширину сверх заданной */
+    width: 220px !important;       /* фиксированная ширина */
+    box-sizing: border-box;
   }
 
   /* Русская кнопка */
@@ -604,7 +604,7 @@ body.ru .buy-btn.en { display: none; }
     font-size: 0.8em;
     padding: 6px 12px;
     margin: 6px auto;
-    min-width: 180px; /* Та же ширина, что и у английской */
+    width: 220px !important;       /* ТА ЖЕ ширина */
     box-sizing: border-box;
   }
 }
