@@ -1,18 +1,31 @@
-/* АНГЛИЙСКАЯ ВЕРСИЯ: Bradley Hand -> Dancing Script */
-body:not(.ru) {
-  font-family: 'Bradley Hand ITC', 'Bradley Hand', 'Dancing Script', cursive;
+body 
+{ margin: 0; padding: 0; 
+text-align: center; transition: background-color 0.3s ease, color 0.3s ease; }
+/* Базовый шрифт для английской версии */
+body {
+  font-family: 'Bradley Hand ITC', cursive;
 }
 
-/* РУССКАЯ ВЕРСИЯ: Не трогаем */
+/* Русский шрифт */
 body.ru {
   font-family: 'Marmelad', sans-serif;
 }
 
-/* Темная тема для английского */
-body.dark:not(.ru) { 
-  background-color: #000; 
-  color: #fff; 
-  font-family: 'Bradley Hand ITC', 'Bradley Hand', 'Dancing Script', cursive; 
+/* Гарантированное применение Marmelad при любой теме */
+body.light {
+  background-color: #f5f0e6;
+  color: #000;
+}
+body.ru.dark {
+  font-family: 'Marmelad', sans-serif;
+}
+
+body.ru #tagline {
+  font-size: 1.2em;
+}
+body.dark { background-color: #000; color: #fff; font-family: 'Bradley Hand ITC', cursive; }
+body.ru {
+  font-family: 'Marmelad', sans-serif;
 }
 
 .top-controls { position: absolute; top: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; }
@@ -620,19 +633,3 @@ body.ru .buy-btn.en { display: none; }
   }
 }
 
-/* --- УВЕЛИЧЕНИЕ ШРИФТА ТОЛЬКО ДЛЯ EN НА МОБИЛЬНЫХ (< 768px) --- */
-@media (max-width: 768px) {
-  
-  /* Все тексты внутри About Me (включая License и Copyright) */
-  body:not(.ru) #about-text,
-  body:not(.ru) #about-text p {
-    font-size: 1.25em !important; 
-    line-height: 1.7 !important;   
-  }
-
-  /* Заголовки в боковой панели */
-  body:not(.ru) .sidebar a {
-    font-size: 1.3em !important;   
-    padding: 14px 20px !important; 
-  }
-}
