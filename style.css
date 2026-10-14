@@ -1,29 +1,18 @@
-body 
-{ margin: 0; padding: 0; 
-text-align: center; transition: background-color 0.3s ease, color 0.3s ease; }
-/* АНГЛИЙСКАЯ ВЕРСИЯ: Bradley Hand -> Marck Script */
+/* АНГЛИЙСКАЯ ВЕРСИЯ: Bradley Hand -> Dancing Script */
 body:not(.ru) {
-  font-family: 'Bradley Hand ITC', 'Bradley Hand', 'Marck Script', cursive;
+  font-family: 'Bradley Hand ITC', 'Bradley Hand', 'Dancing Script', cursive;
 }
 
-/* РУССКАЯ ВЕРСИЯ: Не трогаем, как есть */
+/* РУССКАЯ ВЕРСИЯ: Не трогаем */
 body.ru {
   font-family: 'Marmelad', sans-serif;
 }
 
-/* Гарантированное применение Marmelad при любой теме */
-body.light {
-  background-color: #f5f0e6;
-  color: #000;
-}
-body.ru.dark {
-  font-family: 'Marmelad', sans-serif;
-}
-body.dark { 
+/* Темная тема для английского */
+body.dark:not(.ru) { 
   background-color: #000; 
   color: #fff; 
-  /* Для темной темы на английском тоже нужна цепочка Bradley -> Marck */
-  font-family: 'Bradley Hand ITC', 'Bradley Hand', 'Marck Script', cursive; 
+  font-family: 'Bradley Hand ITC', 'Bradley Hand', 'Dancing Script', cursive; 
 }
 
 .top-controls { position: absolute; top: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; }
@@ -624,9 +613,26 @@ body.ru .buy-btn.en { display: none; }
 /* --- ДЕСКТОПНАЯ ВЕРСИЯ КНОПОК (экраны шире 768px) --- */
 @media (min-width: 769px) {
   .buy-btn {
-    font-size: 0.8em !important;       /* Заметно уменьшаем шрифт */
+    font-size: 0.9em !important;       /* Заметно уменьшаем шрифт */
     padding: 6px 14px !important;      /* Делаем кнопку тоньше и уже */
     width: auto !important;
     min-width: auto !important;
+  }
+}
+
+/* --- УВЕЛИЧЕНИЕ ШРИФТА ТОЛЬКО ДЛЯ EN НА МОБИЛЬНЫХ (< 768px) --- */
+@media (max-width: 768px) {
+  
+  /* Все тексты внутри About Me (включая License и Copyright) */
+  body:not(.ru) #about-text,
+  body:not(.ru) #about-text p {
+    font-size: 1.25em !important; 
+    line-height: 1.7 !important;   
+  }
+
+  /* Заголовки в боковой панели */
+  body:not(.ru) .sidebar a {
+    font-size: 1.3em !important;   
+    padding: 14px 20px !important; 
   }
 }
