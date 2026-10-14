@@ -592,16 +592,16 @@ body.ru .buy-btn.en { display: none; }
 
   /* Английская кнопка */
   body:not(.ru) .buy-btn.en {
-    font-size: 0.95em;
-    padding: 8px 16px;
+    font-size: 0.9em;
+    padding: 7px 14px;
     margin: 8px auto;
   }
 
   /* Русская кнопка */
   body.ru .buy-btn.ru {
-    font-size: 0.9em;          /* чуть меньше для кириллицы */
-    padding: 8px 14px;         /* чуть уже по горизонтали */
-    margin: 8px auto;
+    font-size: 0.8em;          /* чуть меньше для кириллицы */
+    padding: 6px 12px;         /* чуть уже по горизонтали */
+    margin: 6px auto;
   }
 }
 
