@@ -119,7 +119,7 @@ body.light .main-nav a:hover { background-color: #ddd; }
   }
 }
 .modal-wrapper.animate {
-  animation: zoomInFade 2.0s ease-out forwards;
+  animation: zoomInFade 1.5s ease-out forwards;
 }
 .modal {
   display: none;
@@ -590,10 +590,18 @@ body.ru .buy-btn.en { display: none; }
     padding: 14px;
   }
 
-  .buy-btn {
-    font-size: 1.25em;
-    padding: 14px 26px;
-    margin: 10px auto;
+  /* Английская кнопка */
+  body:not(.ru) .buy-btn.en {
+    font-size: 0.95em;
+    padding: 8px 16px;
+    margin: 8px auto;
+  }
+
+  /* Русская кнопка */
+  body.ru .buy-btn.ru {
+    font-size: 0.9em;          /* чуть меньше для кириллицы */
+    padding: 8px 14px;         /* чуть уже по горизонтали */
+    margin: 8px auto;
   }
 }
 
