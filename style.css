@@ -119,7 +119,7 @@ body.light .main-nav a:hover { background-color: #ddd; }
   }
 }
 .modal-wrapper.animate {
-  animation: zoomInFade 1.5s ease-out forwards;
+  animation: zoomInFade 0.9s ease-out forwards;
 }
 .modal {
   display: none;
@@ -426,6 +426,7 @@ body.light .card .description {
   font-size: 3em;
   overflow: visible;
   white-space: nowrap;
+  visibility: hidden;
 }
 
 .title-letter {
