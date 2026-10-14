@@ -1101,10 +1101,46 @@ function toggleSidebar() {
   document.getElementById("sidebar").classList.toggle("show");
 }
 
+function animateTitle() {
+
+  const title = document.getElementById("site-title");
+
+  if (!title) return;
+
+  const text = title.textContent;
+
+  title.innerHTML = "";
+
+  [...text].forEach(char => {
+
+    const span = document.createElement("span");
+
+    span.className = "title-letter";
+    span.textContent = char === " " ? "\u00A0" : char;
+
+    const startX = Math.random() * 2000 - 1000;
+    const startY = Math.random() * 1200 - 600;
+    const rotation = Math.random() * 720 - 360;
+
+    span.style.setProperty("--startX", `${startX}px`);
+    span.style.setProperty("--startY", `${startY}px`);
+    span.style.setProperty("--rotation", `${rotation}deg`);
+
+    title.appendChild(span);
+  });
+
+}
+
 /* ------------------ ПРИ ЗАГРУЗКЕ ------------------ */
 window.addEventListener("DOMContentLoaded", () => {
-  applyLanguage(); // применяем язык один раз
-});
+
+  applyLanguage();
+
+  setTimeout(() => {
+    animateTitle();
+  }, 300);
+
+});Ы
 
 /* ------------------ ОБНОВЛЕНИЕ ССЫЛОК КУПИТЬ ------------------ */
 function updateBuyLinks() {

@@ -23,7 +23,7 @@ body.ru.dark {
 body.ru #tagline {
   font-size: 1.2em;
 }
-body.dark { background-color: #050408; color: #fff; font-family: 'Bradley Hand ITC', cursive; }
+body.dark { background-color: #000; color: #fff; font-family: 'Bradley Hand ITC', cursive; }
 body.ru {
   font-family: 'Marmelad', sans-serif;
 }
@@ -406,6 +406,38 @@ body.light .card .description {
 
 #site-title {
   font-size: 3em;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+.title-letter {
+  display: inline-block;
+  opacity: 0;
+  animation: flyLetter 3s cubic-bezier(.19,1,.22,1) forwards;
+}
+
+@keyframes flyLetter {
+
+  0% {
+    opacity: 0;
+    transform:
+      translate(var(--startX), var(--startY))
+      rotate(var(--rotation))
+      scale(0.2);
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform:
+      translate(0,0)
+      rotate(0deg)
+      scale(1);
+  }
+
 }
 
 /* --- CARD BASE --- */
@@ -508,6 +540,7 @@ body.light .card .description {
   }
 }
 
+
 /* --- КНОПКИ ПОД КАРТИНКОЙ --- */
 .buy-btn {
   display: inline-block;
@@ -539,8 +572,8 @@ body.ru .buy-btn.en { display: none; }
   }
 
   .buy-btn {
-    font-size: 0.8em;
-    padding: 12px 22px;
+    font-size: 1.25em;
+    padding: 14px 26px;
     margin: 10px auto;
   }
 }
