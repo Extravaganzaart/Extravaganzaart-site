@@ -626,7 +626,7 @@ body.ru .buy-btn.en { display: none; }
 /* --- ДЕСКТОПНАЯ ВЕРСИЯ КНОПОК (экраны шире 768px) --- */
 @media (min-width: 769px) {
   .buy-btn {
-    font-size: 0.8em !important;       /* Заметно уменьшаем шрифт */
+    font-size: 0.9em !important;       /* Заметно уменьшаем шрифт */
     padding: 6px 14px !important;      /* Делаем кнопку тоньше и уже */
     width: auto !important;
     min-width: auto !important;
