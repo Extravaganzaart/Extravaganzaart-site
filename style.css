@@ -119,7 +119,7 @@ body.light .main-nav a:hover { background-color: #ddd; }
   }
 }
 .modal-wrapper.animate {
-  animation: zoomInFade 0.9s ease-out forwards;
+  animation: zoomInFade 1.5s ease-out forwards;
 }
 .modal {
   display: none;
@@ -231,7 +231,7 @@ body.light .main-nav a:hover { background-color: #ddd; }
 }
 
 body.flip {
-  animation: flipCanvas 1.5s ease-in-out forwards;
+  animation: flipCanvas 0.8s ease-in-out forwards;
   transform-style: preserve-3d;
 }
 
