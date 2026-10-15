@@ -55,7 +55,7 @@ section { padding: 60px 20px; }
 /* Добавь больше при необходимости */
 @keyframes fadeInCard { to { opacity: 1; transform: translateY(0); } }
 
-footer { padding: 40px 20px; font-size: 0.9em; }
+footer { padding: 40px 20px; font-size: 1.1em; }
 
 .main-nav {
   position: fixed;
@@ -284,7 +284,7 @@ body.ru #footer-text {
   font-size: 0.75em;
 }
 #footer-text {
-  font-size: 1em;
+  font-size: 1.2em;
   opacity: 0.8;
 }
 body.ru h2 {
@@ -537,8 +537,8 @@ body.light .card .description {
   padding: 10px 14px;
   text-align: center;
 
-  font-size: 1.2em;
-  font-weight: 500;
+  font-size: 1.8em;
+  font-weight: 600;
 
   opacity: 0;
   display: none;
@@ -551,11 +551,11 @@ body.light .card .description {
 @media (max-width: 600px) {
 
   html[lang="en"] .overlay {
-    font-size: 1.8em;
+    font-size: 2.1em;
   }
 
   body.ru .overlay {
-    font-size: 1.4em;
+    font-size: 1.6em;
   }
 }
 
@@ -630,4 +630,9 @@ body.ru .buy-btn.en { display: none; }
     width: auto !important;
   }
 }
-
+/* --- УМЕНЬШЕНИЕ ТЕКСТА НА КНОПКЕ ТОЛЬКО ДЛЯ RU НА МОБИЛЬНЫХ --- */
+@media (max-width: 768px) {
+  html[lang="ru"] .buy-btn {
+    font-size: 0.85em !important;    /* Уменьшаем только шрифт */
+  }
+}
