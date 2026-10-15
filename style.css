@@ -400,10 +400,10 @@ img {
   }
 
   html[lang="en"] .main-nav a,
-  html[lang="en"] .sidebar a {
-    font-size: 1.2em;
-    padding: 12px 20px;
-  }
+html[lang="en"] .sidebar a {
+  font-size: 1.7em;
+  padding: 18px 20px;
+}
 
   html[lang="en"] #about-text,
   html[lang="en"] #about-text p {
@@ -423,7 +423,7 @@ body.light .card .description {
 }
 
 #site-title {
-  font-size: 3em;
+  font-size: 3.3em;
   overflow: visible;
   white-space: nowrap;
   visibility: hidden;
@@ -592,17 +592,21 @@ body.ru .buy-btn.en { display: none; }
   }
 
   .buy-btn {
-    width: 260px !important;
-    box-sizing: border-box;
-    text-align: center;
+  width: 260px !important;
+  height: 72px;
 
-    font-size: 0.9em;
-    padding: 8px 14px;
-    margin: 8px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  text-align: center;
+
+  font-size: 0.9em;
+  margin: 8px auto;
   }
 
 }
-
 /* --- КОНТЕЙНЕР ДЛЯ ИЗОБРАЖЕНИЯ (чтобы overlay был на картинке) --- */
 .img-wrap {
   position: relative;
