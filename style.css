@@ -401,7 +401,7 @@ img {
 
   html[lang="en"] .main-nav a,
 html[lang="en"] .sidebar a {
-  font-size: 1.8em;
+  font-size: 1.9em;
   padding: 18px 20px;
 }
 
@@ -547,6 +547,11 @@ body.light .card .description {
   z-index: 10;
 }
 
+/* Уменьшаем название только для русской версии на десктопе */
+body.ru .overlay {
+  font-size: 1em; 
+}
+
 /* Увеличиваем текст ТОЛЬКО на мобильных отдельно для каждого языка */
 @media (max-width: 600px) {
 
@@ -555,7 +560,7 @@ body.light .card .description {
   }
 
   body.ru .overlay {
-    font-size: 1.4em;
+    font-size: 1.6em;
   }
 }
 
