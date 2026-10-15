@@ -1136,6 +1136,11 @@ function closeModal() {
 function toggleSidebar() {
   document.getElementById("sidebar").classList.toggle("show");
 }
+document.querySelectorAll("#sidebar a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("sidebar").classList.remove("show");
+  });
+});
 
 function animateTitle() {
 
