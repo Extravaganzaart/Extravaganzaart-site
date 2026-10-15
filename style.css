@@ -587,7 +587,7 @@ body.ru .buy-btn.en { display: none; }
 @media (max-width: 768px) {
 
   .card .description {
-    font-size: 1.4em;
+    font-size: 1.7em;
     padding: 14px;
   }
 
@@ -602,7 +602,7 @@ body.ru .buy-btn.en { display: none; }
   box-sizing: border-box;
   text-align: center;
 
-  font-size: 0.9em;
+  font-size: 1.2em;
   margin: 8px auto;
   }
 
@@ -624,10 +624,10 @@ body.ru .buy-btn.en { display: none; }
 /* --- ДЕСКТОПНАЯ ВЕРСИЯ КНОПОК (экраны шире 768px) --- */
 @media (min-width: 769px) {
   .buy-btn {
-    font-size: 0.9em !important;       /* Заметно уменьшаем шрифт */
-    padding: 6px 14px !important;      /* Делаем кнопку тоньше и уже */
+    font-size: 1.15em !important;          /* Увеличиваем шрифт (было 0.9em) */
+    padding: 14px 28px !important;         /* Делаем кнопку высокой и пухлой (было 6px 14px) */
+    min-width: 180px !important;           /* Задаем минимальную ширину, чтобы кнопки были солидными */
     width: auto !important;
-    min-width: auto !important;
   }
 }
 
