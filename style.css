@@ -276,10 +276,14 @@ body.light .inspiration-text p {
 body.ru #site-title {
   font-size: 2.6em;
 }
-body.ru #about-text,
+/* Одинаковый крупный размер для "Обо мне" и "Контакты" в русской версии */
+body.ru #about-text p,
 body.ru #contact-text {
-  font-size: 1.2em;
+  font-size: 1.3em !important; 
+  line-height: 1.6;
+  margin: 0 auto 0.8em; /* Чуть больше воздуха между абзацами */
 }
+
 body.ru #footer-text {
   font-size: 0.75em;
 }
@@ -291,12 +295,6 @@ body.ru h2 {
   font-size: 1.6em;
 }
 
-#about-text p {
-  font-size: 1.2em !important;
-  line-height: 1.4;
-  margin: 0 auto 0.6em;
-  max-width: 600px;
-}
 body.ru .main-nav {
   font-size: 1.1em; /* или 1em, если нужно ещё меньше */
 }
