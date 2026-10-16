@@ -645,11 +645,11 @@ body:not(.ru) #contact-text {
   font-size: 1.4em !important; /* Делаем заметно крупнее */
   line-height: 1.5;            /* Чуть больше воздуха между строками для курсива */
 }
-/* Центрированный блок с текстом по ширине для ОБЕИХ версий */
+/* Центрирование и ширина для ОБЕИХ версий */
 #about-text p,
 #contact-text {
-  max-width: 800px !important;       /* Комфортная ширина блока */
-  margin-left: auto !important;      /* Центрируем сам блок */
+  max-width: 800px !important; /* Комфортная ширина: не узко, не широко */
+  margin-left: auto !important;
   margin-right: auto !important;
-  text-align: justify !important;    /* Выравнивание текста по обоим краям */
+  text-align: center !important; /* Выравнивание текста по центру */
 }
