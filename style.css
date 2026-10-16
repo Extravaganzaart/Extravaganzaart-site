@@ -639,3 +639,17 @@ body.ru .buy-btn.en { display: none; }
     font-size: 0.85em !important;    /* Уменьшаем только шрифт */
   }
 }
+/* Увеличение размера для английской версии (Dancing Script) */
+body:not(.ru) #about-text p,
+body:not(.ru) #contact-text {
+  font-size: 1.4em !important; /* Делаем заметно крупнее */
+  line-height: 1.5;            /* Чуть больше воздуха между строками для курсива */
+}
+/* Центрированный блок с текстом по ширине для ОБЕИХ версий */
+#about-text p,
+#contact-text {
+  max-width: 800px !important;       /* Комфортная ширина блока */
+  margin-left: auto !important;      /* Центрируем сам блок */
+  margin-right: auto !important;
+  text-align: justify !important;    /* Выравнивание текста по обоим краям */
+}
