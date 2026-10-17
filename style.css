@@ -11,6 +11,8 @@ body.ru {
   font-family: 'Marmelad', sans-serif;
 }
 
+body.ru #site-title { font-family: 'Great Vibes', cursive; font-size: 3.5em !important; }
+
 /* Гарантированное применение Marmelad при любой теме */
 body.light {
   background-color: #f5f0e6;
@@ -24,11 +26,6 @@ body.ru #tagline {
   font-size: 1.2em;
 }
 body.dark { background-color: #000; color: #fff; font-family: 'Bradley Hand ITC', cursive; }
-body.ru {
-  font-family: 'Marmelad', sans-serif;
-}
-
-body.ru #site-title { font-family: 'Great Vibes', cursive; font-size: 3em !important; }
 
 .top-controls { position: absolute; top: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; }
 .top-controls button { padding: 6px 10px; font-size: 0.9em; border: none; border-radius: 5px; cursor: pointer; }
