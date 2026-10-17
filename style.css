@@ -8,16 +8,15 @@ body {
 
 /* Русский шрифт */
 body.ru {
-  font-family: 'Marmelad', sans-serif;
+  font-family: 'Great Vibes', cursive;
 }
-
-/* Гарантированное применение Marmelad при любой теме */
+/* Гарантированное применение Grear Vibes при любой теме */
 body.light {
   background-color: #f5f0e6;
   color: #000;
 }
 body.ru.dark {
-  font-family: 'Marmelad', sans-serif;
+  font-family: 'Great Vibes', cursive;
 }
 
 body.ru #tagline {
@@ -25,7 +24,7 @@ body.ru #tagline {
 }
 body.dark { background-color: #000; color: #fff; font-family: 'Bradley Hand ITC', cursive; }
 body.ru {
-  font-family: 'Marmelad', sans-serif;
+   font-family: 'Great Vibes', cursive;
 }
 
 .top-controls { position: absolute; top: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; }
