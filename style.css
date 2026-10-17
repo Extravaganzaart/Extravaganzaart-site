@@ -650,15 +650,3 @@ body:not(.ru) #contact-text {
   margin-right: auto !important;
   text-align: center !important; /* Выравнивание текста по центру */
 }
-/* Плавное появление заголовка на русском (убирает вспышку Marmelad) */
-body.ru #site-title {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3.5em !important;
-  opacity: 0;
-  animation: fadeInGreatVibes 0.4s ease forwards;
-}
-
-@keyframes fadeInGreatVibes {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
