@@ -885,7 +885,10 @@ document.querySelectorAll(".card img").forEach((img) => {
       modal.style.display = "block";
       modal.querySelector(".modal-wrapper").classList.add("animate");
       modalImg.src = img.src;
-
+      gtag('event', 'artwork_view', {
+      artwork_name: card.dataset.en,
+      artwork_ru: card.dataset.ru
+});
       card.dataset.clickedOnce = "false";
     }
   });
