@@ -650,10 +650,10 @@ body:not(.ru) #contact-text {
   margin-right: auto !important;
   text-align: center !important; /* Выравнивание текста по центру */
 }
-/* Элегантная подсказка-сайдбар */
+/* Подсказка-сайдбар (только десктоп) */
 .gallery-hint {
   position: fixed;
-  top: 180px; /* Выравнивание по верху с кнопками меню */
+  top: 150px;
   right: 30px;
   width: 260px;
   z-index: 90;
@@ -671,7 +671,7 @@ body:not(.ru) #contact-text {
   visibility: visible;
 }
 
-/* Состояние скрытия */
+/* Анимация скрытия */
 .gallery-hint.hidden {
   opacity: 0;
   visibility: hidden;
@@ -679,7 +679,7 @@ body:not(.ru) #contact-text {
   pointer-events: none;
 }
 
-/* --- ТИПОГРАФИКА (Базовая) --- */
+/* Базовая типографика */
 .hint-title {
   margin: 0 0 12px 0;
   color: #fff;
@@ -700,23 +700,23 @@ body:not(.ru) #contact-text {
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 8px;
 }
-
-/* --- НАСТРОЙКА РАЗМЕРОВ ПО ЯЗЫКАМ --- */
-
-/* 1. АНГЛИЙСКИЙ: Крупнее и заметнее */
-body:not(.ru) .hint-title {
-  font-family: 'Dancing Script', cursive;
-  font-size: 1.6em !important; /* Увеличили для читаемости */
+body:not(.ru) .gallery-hint li {
+  font-size: 1.1em !important; 
 }
 
-/* 2. РУССКИЙ: Компактнее и изящнее */
+/* Настройки размеров по языкам */
+body:not(.ru) .hint-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.6em !important;
+}
+
 body.ru .hint-title {
-  font-family: 'Marmelad', sans-serif; /* Твой шрифт */
-  font-size: 1.05em !important; /* Уменьшили, чтобы не бросался в глаза */
+  font-family: 'Marmelad', sans-serif;
+  font-size: 1.05em !important;
   font-weight: 400;
 }
 
-/* --- СВЕТЛАЯ ТЕМА --- */
+/* Светлая тема */
 body.light .gallery-hint {
   background: rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -731,11 +731,12 @@ body.light .gallery-hint li {
 body.light .close-hint {
   color: rgba(0, 0, 0, 0.5);
 }
+
 body.light .close-hint:hover {
   color: #000;
 }
 
-/* Адаптив: скрываем на мобильных */
+/* Скрытие на мобильных устройствах */
 @media (max-width: 900px) {
   .gallery-hint {
     display: none;
