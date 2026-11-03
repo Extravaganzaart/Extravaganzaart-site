@@ -729,3 +729,15 @@ body.light .close-hint {
 body.light .close-hint:hover {
   color: #000;
 }
+/* Уменьшаем и облегчаем русский заголовок в подсказке */
+.gallery-hint .hint-title {
+  font-size: 1.1em !important; /* Было 1.4em, делаем компактнее */
+  font-weight: 400 !important; /* Убираем жирность, если она есть */
+  letter-spacing: 0.5px;       /* Немного разряжаем буквы для элегантности */
+  margin-bottom: 10px !important;
+}
+
+/* Для светлой темы тоже применим, чтобы не слетело */
+body.light .gallery-hint .hint-title {
+  color: #1a1a1a !important;
+}
