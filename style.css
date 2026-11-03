@@ -707,7 +707,7 @@ body:not(.ru) .gallery-hint li {
 /* Настройки размеров по языкам */
 body:not(.ru) .hint-title {
   font-family: 'Dancing Script', cursive;
-  font-size: 1.6em !important;
+  font-size: 1.4em !important;
 }
 
 body.ru .hint-title {
