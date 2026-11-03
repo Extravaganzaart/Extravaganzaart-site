@@ -85,6 +85,10 @@
 
   <section id="gallery">
     <h2 id="gallery-title">Gallery</h2>
+🔍 Explore each artwork:
+ • First click reveals the title
+ • Second click opens the full-size image
+
 <!-- Модальное окно -->
 <div id="modal" class="modal">
   <div class="modal-wrapper">
@@ -770,7 +774,14 @@ function toggleLanguage() {
   languageSound.play();
   applyLanguage();
 }
-
+document.getElementById("gallery-tip").innerHTML = currentLang === "en" ? 
+'🔍 Explore each artwork:<br>
+• First click reveals the title<br>
+• Second click opens the full-size image' : 
+'🔍 Как смотреть галерею:<br>
+• Первый клик показывает название работы<br>
+• Второй клик открывает изображение в полном размере';
+}
 /* ------------------ ГАЛЕРЕЯ ------------------ */
 
 /* 1. Оборачиваем каждую картинку в контейнер .img-wrap */
