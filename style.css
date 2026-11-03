@@ -653,12 +653,11 @@ body:not(.ru) #contact-text {
 /* Элегантная подсказка-сайдбар */
 .gallery-hint {
   position: fixed;
-  top: 190px; /* Выравнивание по верху с кнопками меню */
-  right: 30px; /* Симметрично левому сайдбару */
+  top: 180px; /* Выравнивание по верху с кнопками меню */
+  right: 30px;
   width: 260px;
-  z-index: 90; /* Ниже модального окна (обычно 100+), но выше галереи */
+  z-index: 90;
   
-  /* Эффект матового стекла */
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -667,25 +666,22 @@ body:not(.ru) #contact-text {
   padding: 20px 24px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   
-  /* Плавные переходы */
   transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
   opacity: 1;
   visibility: visible;
 }
 
-/* Состояние скрытия (когда открыта картина) */
+/* Состояние скрытия */
 .gallery-hint.hidden {
   opacity: 0;
   visibility: hidden;
-  transform: translateX(20px); /* Легкий сдвиг вправо при исчезновении */
+  transform: translateX(20px);
   pointer-events: none;
 }
 
-/* Типографика */
+/* --- ТИПОГРАФИКА (Базовая) --- */
 .hint-title {
   margin: 0 0 12px 0;
-  font-family: 'Dancing Script', cursive;
-  font-size: 1.4em;
   color: #fff;
   text-align: center;
   letter-spacing: 0.5px;
@@ -705,22 +701,31 @@ body:not(.ru) #contact-text {
   margin-bottom: 8px;
 }
 
-/* Адаптив: на мобильных скрываем, чтобы не мешать */
-@media (max-width: 900px) {
-  .gallery-hint {
-    display: none;
-  }
+/* --- НАСТРОЙКА РАЗМЕРОВ ПО ЯЗЫКАМ --- */
+
+/* 1. АНГЛИЙСКИЙ: Крупнее и заметнее */
+body:not(.ru) .hint-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.6em !important; /* Увеличили для читаемости */
 }
-/* Адаптация подсказки под светлую тему */
+
+/* 2. РУССКИЙ: Компактнее и изящнее */
+body.ru .hint-title {
+  font-family: 'Marmelad', sans-serif; /* Твой шрифт */
+  font-size: 1.05em !important; /* Уменьшили, чтобы не бросался в глаза */
+  font-weight: 400;
+}
+
+/* --- СВЕТЛАЯ ТЕМА --- */
 body.light .gallery-hint {
-  background: rgba(0, 0, 0, 0.05); /* Легкий темный фон для контраста */
+  background: rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 body.light .hint-title,
 body.light .gallery-hint li {
-  color: #1a1a1a !important; /* Темный текст */
+  color: #1a1a1a !important;
 }
 
 body.light .close-hint {
@@ -729,15 +734,10 @@ body.light .close-hint {
 body.light .close-hint:hover {
   color: #000;
 }
-/* Уменьшаем и облегчаем русский заголовок в подсказке */
-.gallery-hint .hint-title {
-  font-size: 1.1em !important; /* Было 1.4em, делаем компактнее */
-  font-weight: 400 !important; /* Убираем жирность, если она есть */
-  letter-spacing: 0.5px;       /* Немного разряжаем буквы для элегантности */
-  margin-bottom: 10px !important;
-}
 
-/* Для светлой темы тоже применим, чтобы не слетело */
-body.light .gallery-hint .hint-title {
-  color: #1a1a1a !important;
+/* Адаптив: скрываем на мобильных */
+@media (max-width: 900px) {
+  .gallery-hint {
+    display: none;
+  }
 }
