@@ -653,7 +653,7 @@ body:not(.ru) #contact-text {
 /* Элегантная подсказка-сайдбар */
 .gallery-hint {
   position: fixed;
-  top: 100px; /* Выравнивание по верху с кнопками меню */
+  top: 330px; /* Выравнивание по верху с кнопками меню */
   right: 30px; /* Симметрично левому сайдбару */
   width: 260px;
   z-index: 90; /* Ниже модального окна (обычно 100+), но выше галереи */
@@ -710,4 +710,22 @@ body:not(.ru) #contact-text {
   .gallery-hint {
     display: none;
   }
+}
+/* Адаптация подсказки под светлую тему */
+body.light .gallery-hint {
+  background: rgba(0, 0, 0, 0.05); /* Легкий темный фон для контраста */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+body.light .hint-title,
+body.light .gallery-hint li {
+  color: #1a1a1a !important; /* Темный текст */
+}
+
+body.light .close-hint {
+  color: rgba(0, 0, 0, 0.5);
+}
+body.light .close-hint:hover {
+  color: #000;
 }

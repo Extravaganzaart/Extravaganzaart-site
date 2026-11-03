@@ -774,6 +774,19 @@ function applyLanguage() {
   // Показываем кнопки нужного языка
   document.querySelectorAll(".buy-btn.en").forEach(btn => btn.style.display = isEnglish ? "" : "none");
   document.querySelectorAll(".buy-btn.ru").forEach(btn => btn.style.display = isEnglish ? "none" : "");
+const hint = document.getElementById('galleryHint');
+  if (hint) {
+      const enContent = hint.querySelector('.hint-content.en');
+      const ruContent = hint.querySelector('.hint-content.ru');
+      
+      if (currentLang === 'ru') {
+          enContent.style.display = 'none';
+          ruContent.style.display = 'block';
+      } else {
+          enContent.style.display = 'block';
+          ruContent.style.display = 'none';
+      }
+  }
 
   // Загружаем About
   fetch(langFile)
