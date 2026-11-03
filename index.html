@@ -61,6 +61,26 @@
   <a href="#contact" id="nav-contact-side">Contacts</a>
 </nav>
 
+<!-- Умная подсказка для галереи -->
+<div class="gallery-hint" id="galleryHint">
+  <!-- Английская версия -->
+  <div class="hint-content en">
+    <p class="hint-title">Explore each artwork:</p>
+    <ul>
+      <li>First click reveals the title</li>
+      <li>Second click opens full-size image</li>
+    </ul>
+  </div>
+  
+  <!-- Русская версия -->
+  <div class="hint-content ru" style="display: none;">
+    <p class="hint-title">Как смотреть галерею:</p>
+    <ul>
+      <li>Первый клик показывает название работы</li>
+      <li>Второй клик открывает изображение в полном размере</li>
+    </ul>
+  </div>
+</div>
 <nav class="main-nav">
   <a href="#gallery" id="nav-gallery">Gallery</a>
   <a href="#about" id="nav-about">About Me</a>
@@ -832,6 +852,7 @@ document.querySelectorAll(".card img").forEach((img) => {
       artwork_name: card.dataset.en,
       artwork_ru: card.dataset.ru
 });
+ toggleGalleryHint(false);
       card.dataset.clickedOnce = "false";
     }
   });
@@ -841,6 +862,19 @@ function closeModal() {
   const modal = document.getElementById("modal");
   modal.style.display = "none";
   modal.querySelector(".modal-wrapper").classList.remove("animate");
+
+toggleGalleryHint(true); 
+}
+
+function toggleGalleryHint(show) {
+  const hint = document.getElementById('galleryHint');
+  if (hint) {
+    if (show) {
+      hint.classList.remove('hidden');
+    } else {
+      hint.classList.add('hidden');
+    }
+  }
 }
 
 /* ------------------ САЙДБАР ------------------ */
